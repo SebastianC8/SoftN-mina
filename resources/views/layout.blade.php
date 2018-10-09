@@ -321,12 +321,16 @@
     <script src="{{asset('plantilla/js/off-canvas.js')}}"></script>
     <script src="{{asset('plantilla/js/misc.js')}}"></script>
 
-    <script src="{{asset('public/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('/js/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('/js/validations.js')}}"></script>
+    {{-- <script src="{{asset('/js/jquery.dataTables.min.js')}}"></script> --}}
+
     <script>
-    $(document).ready( function () {
-        $('#tableBonus').DataTable();
-    });
-    // </script>
+        $(document).ready( function () {
+            $('#tableBonus').DataTable();
+        });
+    </script>
+
     <script>
         function quitar()
         {

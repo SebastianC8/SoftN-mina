@@ -24,18 +24,23 @@ class BonusController extends Controller
 
     public function store(CreateBonusRequest $request) //Función para registrar bonus.
     {
-        if($request->input('txt_idBonuses')===0)
+
+        if($request->input('txt_idBonuses')===null)
         {
-            Bonus::create($request->all());
+            Bonus::create([
+                'descriptionBonus' => $request['descriptionBonus'],
+                'valueBonus' => $request['valueBonus']
+            ]);
             return redirect()->route('bonus.create');
         }
         else
         {
-            $this->update($request);
+            BonusController::update($request);
+            return redirect()->route('bonus.create')->with('alert', 'El registro se ha actualizado correctamente.');
         }
     }
 
-    public function show($id)
+    public function show($id) //Función para cargar el modal de bonus para la respectiva actualización.
     {
         $bonus = Bonus::findOrfail($id);
         return response()->json($bonus);
@@ -46,9 +51,13 @@ class BonusController extends Controller
 
     }
 
-    public function update(CreateBonusRequest $request)
+    public function update(Request $request) //Función para actualizar los bonus.
     {
-
+        $bonus = Bonus::where('idBonus', $request['txt_idBonuses'])->
+        update([
+            'descriptionBonus' => $request['descriptionBonus'],
+            'valueBonus' => $request['valueBonus']
+        ]);
     }
 
     public function destroy($id)
