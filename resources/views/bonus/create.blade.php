@@ -10,13 +10,14 @@
             @if(session()->has('alert'))
             @else
             <h3>{{session('alert')}}</h3>
-            <h4 class="card-title">Consultar bonus </h4>
+            <h4 class="card-title">Lista de bonus </h4>
             <h4></h4>
             <table class="table table-bordered" id="tableBonus">
                 <thead>
                     <tr>
                         <th>Descripción</th>
                         <th>Valor</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -25,11 +26,20 @@
                     <tr>
                         <td>{{$item->descriptionBonus}}</td>
                         <td>$ {{$item->valueBonus}}</td>
+                        <td>{{ $item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="editBonuses({{$item->idBonus}})"><i
                                     class="fas fa-edit"></i></button>
-                            <button class="btn btn-icons btn-rounded btn-outline-danger" title="Cambiar estado" style="border-radius:20px"><i
-                                    class="fas fa-exchange-alt"></i></button>
+
+                            @if($item->status == 1)
+                            <a href="/bonus/estado/{{$item->idBonus}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
+                                class="fas fa-exchange-alt"></i></a>
+
+                            @else
+                            <a href="/bonus/estado/{{$item->idBonus}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
+                                class="fas fa-exchange-alt"></i></a>
+
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -51,8 +61,6 @@
     {
         $('#modal_bonuses').modal();
         $('#form_bonuses')[0].reset();
-        // $('#descriptionBonus-error').css({"display":"none"});
-        // $('#valueBonus-error').html('');
     }
 </script>
 
@@ -67,4 +75,6 @@
         })
     }
 </script>
+
+
 

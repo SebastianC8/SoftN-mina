@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Bonus;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use DataTables;
 use App\Http\Requests\CreateBonusRequest;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Console\Presets\React;
 
 
 class BonusController extends Controller
@@ -24,7 +26,6 @@ class BonusController extends Controller
 
     public function store(CreateBonusRequest $request) //Función para registrar bonus.
     {
-
         if($request->input('txt_idBonuses')===null)
         {
             Bonus::create([
@@ -36,7 +37,7 @@ class BonusController extends Controller
         else
         {
             BonusController::update($request);
-            return redirect()->route('bonus.create')->with('alert', 'El registro se ha actualizado correctamente.');
+            return redirect()->route('bonus.create');
         }
     }
 
@@ -60,8 +61,9 @@ class BonusController extends Controller
         ]);
     }
 
-    public function destroy($id)
+    public function changeStatus($id, $status) //Función para cambiar el estado del bonus.
     {
-
+        $bonus = Bonus::findOrFail($id)->update(["status" => $status]);
+        return redirect()->route('bonus.create');
     }
 }

@@ -268,6 +268,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('bonus.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Bonus</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('commissions.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Comisiones</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -292,7 +295,7 @@
                               </ul><br> --}}
                     <div class="row">
                         @yield('contenido')
-                        <footer class="footer" style="position:absolute; bottom:0px">
+                        <footer class="footer" >
                                 <div class="container-fluid clearfix">
                                     <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
                                         <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. Todos los
