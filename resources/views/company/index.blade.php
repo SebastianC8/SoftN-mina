@@ -71,6 +71,7 @@
             $("#mdl_nameCommission").val(data.companyName);
             // $("#mdl_imgCompany").val(data.imgCompany);
             $("#mdl_numberEmployees").val(data.numberEmployees);
+            if(data.sizeCompany==0){}
             $("#mdl_sizeCompany").val(data.sizeCompany);
         })
         $('#modal_company').modal();

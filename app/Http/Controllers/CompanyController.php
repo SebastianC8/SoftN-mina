@@ -46,7 +46,7 @@ class CompanyController extends Controller
             'documentType_id' => $request['mdl_documentType'],
             'codeCompany' => $request['mdl_codCompany'],
             'companyName' => $request['mdl_nameCommission'],
-
+            'numberEmployees' => $request['mdl_numberEmployees']
         ]);
     }
 }
