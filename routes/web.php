@@ -22,5 +22,14 @@ Route::post('bonus', ['as' => 'bonus.store', 'uses' => 'BonusController@store'])
 //Ruta para listar todos los bonus.
 Route::get('bonus', ['as' => 'bonus.index', 'uses' => 'BonusController@index']);
 //Ruta para editar bonus.
-Route::get('bonus/{id}/show',  'BonusController@show');
-
+Route::get('bonus/{id}/show', 'BonusController@show');
+//Ruta para ir a areas
+Route::get('areas',['as'=>'areas.index','uses'=>'AreasController@index']);
+//Ruta para crear areas
+Route::post('areas', ['as' => 'areas.store', 'uses' => 'AreasController@store']);
+//Ruta para mapear area en el modal 
+Route::get('area/{area}/show','AreasController@show');
+//Ruta para editar area
+Route::post('area/update', ['as'=>'areas.update','uses'=>'AreasController@update']);
+//Ruta para cambiar estado a un área.
+Route::get('/area/estado/{id}/{estado}', 'AreasController@changeStatus');
