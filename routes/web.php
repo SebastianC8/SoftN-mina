@@ -29,4 +29,8 @@ Route::post('commissionsUpdate',  'CommissionsController@update');
 Route::get('/commissions/estado/{id}/{estado}', 'CommissionsController@changeStatus');
 
 //Ruta para la vista crear de empresas.
-Route::get('company/create', 'CompanyController@create');
+Route::get('company/create', ['as' => 'company.create', 'uses' => 'CompanyController@create']);
+//Ruta para la vista de listar empresas.
+Route::get('company', ['as' => 'company.index', 'uses' => 'CompanyController@index']);
+//Ruta para registrar una empresa.
+Route::post('company', ['as' => 'company.store', 'uses' => 'CompanyController@store']);

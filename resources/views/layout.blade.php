@@ -28,6 +28,11 @@
 </head>
 
 <body onload="quitar()">
+
+        @include('sweetalert::cdn')
+        @include('sweetalert::view')
+        {{-- @include('sweetalert::validator') --}}
+
     <div class="container-scroller">
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
@@ -240,7 +245,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{route('company.index')}}">
                             <i class="menu-icon far fa-building"></i>
                             <span class="menu-title">Empresas</span>
                         </a>
