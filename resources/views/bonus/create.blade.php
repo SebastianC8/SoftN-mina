@@ -2,17 +2,22 @@
 
 @section('contenido')
 
+
 <div class="col-12 stretch-card">
     <div class="card" style="border-radius:20px">
         <div class="card-body">
             <button id="btnAdd" class="btn btn-success btn-fw" onclick="addBonuses()"> Añadir bonus <i class="fas fa-plus-circle"></i></button><br><br>
-            <h4 class="card-title">Consultar bonus </h4>
+            @if(session()->has('alert'))
+            @else
+            <h3>{{session('alert')}}</h3>
+            <h4 class="card-title">Lista de bonus </h4>
             <h4></h4>
             <table class="table table-bordered" id="tableBonus">
                 <thead>
                     <tr>
                         <th>Descripción</th>
                         <th>Valor</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -20,12 +25,21 @@
                     @foreach ($bonuses as $item)
                     <tr>
                         <td>{{$item->descriptionBonus}}</td>
-                        <td>{{$item->valueBonus}}</td>
+                        <td>$ {{$item->valueBonus}}</td>
+                        <td>{{ $item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="editBonuses({{$item->idBonus}})"><i
                                     class="fas fa-edit"></i></button>
-                            <button class="btn btn-icons btn-rounded btn-outline-danger" title="Eliminar" style="border-radius:20px"><i
-                                    class="fas fa-trash"></i></button>
+
+                            @if($item->status == 1)
+                            <a href="/bonus/estado/{{$item->idBonus}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
+                                class="fas fa-exchange-alt"></i></a>
+
+                            @else
+                            <a href="/bonus/estado/{{$item->idBonus}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
+                                class="fas fa-exchange-alt"></i></a>
+
+                            @endif
                         </td>
                     </tr>
                     @endforeach
@@ -35,6 +49,7 @@
     </div>
 </div>
 </div>
+@endif
 
 @include('bonus.ModalBonuses')
 
@@ -60,4 +75,6 @@
         })
     }
 </script>
+
+
 

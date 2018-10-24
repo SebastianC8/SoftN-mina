@@ -30,6 +30,11 @@
 </head>
 
 <body onload="quitar()">
+
+        @include('sweetalert::cdn')
+        @include('sweetalert::view')
+        {{-- @include('sweetalert::validator') --}}
+
     <div class="container-scroller">
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
@@ -242,7 +247,11 @@
                         </div>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" data-toggle="collapse" href="#ui-bas" id="todo" aria-expanded="false" aria-controls="ui-basi">
+=======
+                        <a class="nav-link" href="{{route('company.index')}}">
+>>>>>>> aa2e937c3eeb3b9abf96f6a2d4738f0b36469a0f
                             <i class="menu-icon far fa-building"></i>
                             <span class="menu-title">Empresa</span>
                             <i class="menu-arrow"></i>
@@ -277,6 +286,9 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('bonus.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Bonus</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('commissions.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Comisiones</a>
                                 </li>
                             </ul>
                         </div>                        
@@ -336,10 +348,11 @@
     <script src="{{asset('public/js/jquery.dataTables.min.js')}}"></script>
 
     <script>
-    $(document).ready( function () {
-        $('#tableBonus').DataTable();
-    });
-    // </script>
+        $(document).ready( function () {
+            $('#tableBonus').DataTable();
+        });
+    </script>
+
     <script>
         function quitar()
         {

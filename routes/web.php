@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('layout');
 });
@@ -33,3 +22,26 @@ Route::get('area/{area}/show','AreasController@show');
 Route::post('area/update', ['as'=>'areas.update','uses'=>'AreasController@update']);
 //Ruta para cambiar estado a un área.
 Route::get('/area/estado/{id}/{estado}', 'AreasController@changeStatus');
+Route::get('bonus/{id}/show',  'BonusController@show');
+//Ruta para actualizar bonus.
+Route::put('bonus/{id}', ['as' => 'bonus.update', 'uses' => 'BonusController@update']);
+//Ruta para cambiar de estado un bonus.
+Route::get('/bonus/estado/{id}/{estado}', 'BonusController@changeStatus');
+
+//Ruta para la vista principal de Comisiones.
+Route::get('commissions', ['as' => 'commissions.create', 'uses' => 'CommissionsController@index']);
+//Ruta para registrar un comisión.
+Route::post('commissions', ['as' => 'commissions.store', 'uses' => 'CommissionsController@store']);
+//Ruta para editar una comisión.
+Route::get('commissions/{id}/show', 'CommissionsController@show');
+//Ruta para actualizar una comisión.
+Route::post('commissionsUpdate',  'CommissionsController@update');
+//Ruta para cambiar de estado una comisión.
+Route::get('/commissions/estado/{id}/{estado}', 'CommissionsController@changeStatus');
+
+//Ruta para la vista crear de empresas.
+Route::get('company/create', ['as' => 'company.create', 'uses' => 'CompanyController@create']);
+//Ruta para la vista de listar empresas.
+Route::get('company', ['as' => 'company.index', 'uses' => 'CompanyController@index']);
+//Ruta para registrar una empresa.
+Route::post('company', ['as' => 'company.store', 'uses' => 'CompanyController@store']);
