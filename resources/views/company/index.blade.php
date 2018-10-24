@@ -44,7 +44,7 @@
                             @endif
                         </td>
                         <td>
-                            <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="editCompany()"><i
+                            <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="editCompany({{$item->idCompany}})"><i
                             class="fas fa-edit"></i></button>
                         </td>
                     </tr>
@@ -63,7 +63,16 @@
 @stop
 
 <script>
-    function editCompany(){
-        $("#modal_company").modal()
+    function editCompany(id){
+        $.get("{{url('company')}}" + '/' + id + '/show', (data)=>{
+            console.log(data);
+            $("#mdl_documentType").val(data.documentType_id);
+            $("#mdl_codCompany").val(data.codeCompany);
+            $("#mdl_nameCommission").val(data.companyName);
+            // $("#mdl_imgCompany").val(data.imgCompany);
+            $("#mdl_numberEmployees").val(data.numberEmployees);
+            $("#mdl_sizeCompany").val(data.sizeCompany);
+        })
+        $('#modal_company').modal();
     }
 </script>

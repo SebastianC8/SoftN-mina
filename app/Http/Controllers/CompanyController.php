@@ -20,7 +20,6 @@ class CompanyController extends Controller
     public function create(){
         $company = Company::all();
         return view('company.create', compact('company'));
-
     }
 
     public function store(CreateCompanyRequest $request)
@@ -34,5 +33,20 @@ class CompanyController extends Controller
         $company->save();
         swal()->message('Felicidades','La empresa ha sido registrada correctamente.','success');
         return redirect()->route('company.create');
+    }
+
+    public function show($id){
+        $company = Company::findOrFail($id);
+        return response()->json($company);
+    }
+
+    public function update(Request $request){
+        $company = Company::where('idCompany', $request['mdl_idCompany'])->
+        update([
+            'documentType_id' => $request['mdl_documentType'],
+            'codeCompany' => $request['mdl_codCompany'],
+            'companyName' => $request['mdl_nameCommission'],
+
+        ]);
     }
 }

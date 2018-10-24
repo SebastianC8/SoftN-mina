@@ -34,3 +34,7 @@ Route::get('company/create', ['as' => 'company.create', 'uses' => 'CompanyContro
 Route::get('company', ['as' => 'company.index', 'uses' => 'CompanyController@index']);
 //Ruta para registrar una empresa.
 Route::post('company', ['as' => 'company.store', 'uses' => 'CompanyController@store']);
+//Ruta para editar una empresa.
+Route::get('company/{id}/show','CompanyController@show');
+//Ruta para actualizar la información de una empresa.
+Route::post('companyUpdate', 'CompanyController@update');
