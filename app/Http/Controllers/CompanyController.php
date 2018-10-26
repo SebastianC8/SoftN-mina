@@ -18,9 +18,9 @@ class CompanyController extends Controller
     }
 
     public function create(){
+        $documentTypes = DocumentType::where('codeDiferent', 1)->get();
         $company = Company::all();
-        return view('company.create', compact('company'));
-
+        return view('company.create', compact('company','documentTypes'));
     }
 
     public function store(CreateCompanyRequest $request)
@@ -34,5 +34,22 @@ class CompanyController extends Controller
         $company->save();
         swal()->message('Felicidades','La empresa ha sido registrada correctamente.','success');
         return redirect()->route('company.create');
+    }
+
+    public function show($id){
+        $company = Company::findOrFail($id);
+        return response()->json($company);
+    }
+
+    public function update(Request $request){
+        $company = Company::where('idCompany', $request['mdl_idCompany'])->
+        update([
+            'documentType_id' => $request['mdl_documentType'],
+            'codeCompany' => $request['mdl_codCompany'],
+            'companyName' => $request['mdl_nameCommission'],
+            'numberEmployees' => $request['mdl_numberEmployees'],
+            'sizeCompany' => $request['mdl_sizeCompanyDB']
+        ]);
+        return redirect()->route('company.index');
     }
 }

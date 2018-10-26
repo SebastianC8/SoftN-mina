@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
-use App\Area;
+use App\Models\Area;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 // use App\Http\Request\CreateAreasRequest;
@@ -23,8 +23,8 @@ class AreasController extends Controller
         return view('areas.create', compact('areas'));
     }
 
-  
-   
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -32,7 +32,7 @@ class AreasController extends Controller
      */
     public function create()
     {
-              
+
     }
 
     /**g
@@ -47,15 +47,15 @@ class AreasController extends Controller
             'nameArea' => $request['nameArea'],
             'bossArea' => $request['bossArea']
         ]);
-      
+
             return redirect()->route('areas.index');
-       
-        
+
+
         // DB::table('areas')->insert([
         //     "nameArea"=>$request->input('descriptionArea'),
         //     "bossArea"=>$request->input('valueEncargadoArea')
         // ]);
-    
+
         // return redirect()->route('areas.index');
 
     }
@@ -82,7 +82,7 @@ class AreasController extends Controller
     {
         $area= Area::findOrfail($id);
         return view('areas.update',compact('area'));
-        
+
     }
 
     /**
@@ -103,11 +103,11 @@ class AreasController extends Controller
 
     public function destroy($id, $status)
     {
-        
+
     }
 
     public function changeStatus($id, $status){
-        $area = Area::where('idAreas',$id)->update(["status" => $status]);        
+        $area = Area::where('idAreas',$id)->update(["status" => $status]);
         return redirect()->route('areas.index');
     }
 }

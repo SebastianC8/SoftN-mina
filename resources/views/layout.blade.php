@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.addons.css')}}">
     <link rel="stylesheet" href="{{asset('public/css/dataTable.css')}}">
-    <link rel="stylesheet" href="{{asset('public/js/dataTable.min.js')}}"> 
-    
+    <link rel="stylesheet" href="{{asset('public/js/dataTable.min.js')}}">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <link rel="stylesheet" href="{{asset('plantilla/vendors/icheck/skins/all.css')}}">
@@ -267,19 +266,26 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-bas" id="todo" aria-expanded="false" aria-controls="ui-basi">
-                            <i class="menu-icon far fa-building"></i>
-                            <span class="menu-title">Empresa</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-bas">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('areas.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Áreas</a>
-                                </li>
-                            </ul>
-                        </div>                        
-                    </li>
+                            <a class="nav-link" data-toggle="collapse" href="#ui-bas" id="empresas_menu" aria-expanded="false" aria-controls="ui-bas">
+                                <i class="menu-icon far fa-building"></i>
+                                <span class="menu-title">Empresas</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-bas">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('company.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Registrar empresa</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('company.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Consultar empresas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="{{route('areas.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Áreas</a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="">
                             <i class="menu-icon far fa-money-bill-alt"></i>
@@ -307,10 +313,22 @@
                                     <a class="nav-link" href="{{route('commissions.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Comisiones</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="{{route('layoffs.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Cesantías</a>
+                                    <a class="nav-link" href="{{route('documentType.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Tipos de documento</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('EPS.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; EPS</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('holidays.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Vacaciones</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('maritalStatus.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Estado civil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('layoffs.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Cesantías</a>
                                 </li>
                             </ul>
-                        </div>                        
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -376,7 +394,9 @@
         function quitar()
         {
             $("#ui-basi").removeClass("show");
+            $("#ui-bas").removeClass("show");
             $("#todo").addClass("collapsed");
+            $("#empresas_menu").addClass("collapsed");
         }
 
     </script>

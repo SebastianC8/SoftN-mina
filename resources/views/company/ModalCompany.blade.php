@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="" method="POST">
+                <form id="" action="companyUpdate" method="POST">
                     @csrf
                     <input type="hidden" name="mdl_idCompany" id="mdl_idCompany">
                     <div class="form-group row">
@@ -18,7 +18,7 @@
                             <select class="form-control" name="mdl_documentType" id="mdl_documentType">
                                 @foreach ($documentTypes as $value)
                                     <option value="{{$value->idDocumentType}}">{{$value->descriptionDocument}}</option>
-                                    {!!$errors->first('documentType_id','<span class=error>:message</span>')!!}
+                                    {!!$errors->first('mdl_documentType','<span class=error>:message</span>')!!}
                                     @endforeach
                             </select>
                         </div>
@@ -34,15 +34,14 @@
                             <input type="text" class="form-control" id="mdl_nameCommission" name="mdl_nameCommission"
                                 placeholder="Ingrese el nombre de la empresa" required>
                         </div>
-                        <br><br>
+                        {{-- <br><br>
                         <label for="" class="col-sm-3 col-form-label">Imagen</label>
                         <div class="col-sm-9">
-                            <input type="file" style="font-size: 12px;" id="mdl_imgCompany" name="mdl_imgCompany">
-                        </div>
+                        </div> --}}
                         <br><br>
                         <label for="" class="col-sm-3 col-form-label">Número de empleados</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="mdl_numberEmployees" name="mdl_numberEmployees"
+                            <input type="text" class="form-control" id="mdl_numberEmployees" onchange="calculateValue(this.value)" name="mdl_numberEmployees"
                                 placeholder="Ingrese el número de empleados de la empresa" required>
                         </div>
                         <br><br>
@@ -50,14 +49,13 @@
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="mdl_sizeCompany" name=""
                                 placeholder="Tamaño de la empresa" readOnly required>
-                            <input type="hidden" class="form-control" id="mdl_sizeCompanyDB" name="mdl_sizeCompanyDB"
-                                placeholder="Tamaño de la empresa" readOnly required>
+                            <input type="hidden" class="form-control" id="mdl_sizeCompanyDB" name="mdl_sizeCompanyDB">
                         </div>
                     </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-success mr-2">Guardar</button>
+                <button type="submit" class="btn btn-success mr-2">Actualizar</button>
                 </form>
             </div>
         </div>

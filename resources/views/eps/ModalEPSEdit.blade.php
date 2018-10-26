@@ -1,23 +1,23 @@
-<div class="modal fade" id="modal_commissionsEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modal_eps_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar comisión</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar EPS</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="" action="commissionsUpdate" method="POST">
+                <form id="" action="EPS_update" method="POST">
                     @csrf
-                    <input type="hidden" name="idCommission_mdl" id="idCommission_mdl">
+                    <input type="hidden" name="idEPS_edit" id="idEPS_edit">
                     <div class="form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Descripción</label>
+                        <label for="" class="col-sm-3 col-form-label">Nombre</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="nameComissionMdl" name="nameComissionMdl" value="{{old('nameComissionMdl')}}"
-                                placeholder="Ingrese el nombre de la comisión" required>
-                            {!!$errors->first('nameComissionMdl','<span class=error>:message</span>')!!}
+                            <input type="text" class="form-control" id="nameEPS_edit" name="nameEPS_edit" value="{{old('nameEPS_edit')}}"
+                                placeholder="Ingrese el nombre de la EPS" required>
+                            {!!$errors->first('nameEPS_edit','<span class=error>:message</span>')!!}
                         </div>
                     </div>
             </div>
