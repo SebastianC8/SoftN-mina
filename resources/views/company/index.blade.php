@@ -13,7 +13,7 @@
             <table class="table table-bordered" id="tableBonus">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
+                        <th>Empresa</th>
                         <th>Documento de Identificación</th>
                         <th>Código</th>
                         <th>Imagen</th>
@@ -63,16 +63,56 @@
 @stop
 
 <script>
-    function editCompany(id){
+    function editCompany(id)
+    {
         $.get("{{url('company')}}" + '/' + id + '/show', (data)=>{
-            console.log(data);
+            var img = data.imgCompany;
+            $("#mdl_idCompany").val(data.idCompany);
             $("#mdl_documentType").val(data.documentType_id);
             $("#mdl_codCompany").val(data.codeCompany);
+            // $("#img_company").attr("src", function(){
+            //     return "{{Storage::url("+img+")}}";
+            // });
             $("#mdl_nameCommission").val(data.companyName);
-            // $("#mdl_imgCompany").val(data.imgCompany);
             $("#mdl_numberEmployees").val(data.numberEmployees);
-            $("#mdl_sizeCompany").val(data.sizeCompany);
+            if(data.sizeCompany==0){
+                $("#mdl_sizeCompany").val("Microempresa");
+            }else if(data.sizeCompany==1){
+                $("#mdl_sizeCompany").val("Pequeña empresa");
+            }else if(data.sizeCompany==2){
+                $("#mdl_sizeCompany").val("Mediana empresa");
+            }else if(data.sizeCompany==3){
+                $("#mdl_sizeCompany").val("Macroempresa");
+            }
+            $("#mdl_sizeCompanyDB").val(data.sizeCompany);
         })
         $('#modal_company').modal();
     }
 </script>
+
+<script>
+    function calculateValue(value){
+        var data=[];
+        if(value < 10){
+            data.push('Microempresa',0)
+            $("#mdl_sizeCompany").val(data[0]);
+            $("#mdl_sizeCompanyDB").val(data[1])
+        }
+        else if(value >= 10 && value < 50){
+            data.push('Pequeña empresa',1)
+            $("#mdl_sizeCompany").val(data[0]);
+            $("#mdl_sizeCompanyDB").val(data[1])
+        }
+        else if(value >= 50 && value < 250){
+            data.push('Mediana empresa',2)
+            $("#mdl_sizeCompany").val(data[0]);
+            $("#mdl_sizeCompanyDB").val(data[1])
+        }
+        else if(value >= 250){
+            data.push('Macroempresa',3)
+            $("#mdl_sizeCompany").val(data[0]);
+            $("#mdl_sizeCompanyDB").val(data[1])
+        }
+    }
+</script>
+

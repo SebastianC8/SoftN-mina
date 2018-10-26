@@ -245,11 +245,22 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('company.index')}}">
-                            <i class="menu-icon far fa-building"></i>
-                            <span class="menu-title">Empresas</span>
-                        </a>
-                    </li>
+                            <a class="nav-link" data-toggle="collapse" href="#ui-bas" id="empresas_menu" aria-expanded="false" aria-controls="ui-bas">
+                                <i class="menu-icon far fa-building"></i>
+                                <span class="menu-title">Empresas</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-bas">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('company.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Registrar empresa</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('company.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Consultar empresas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">
                             <i class="menu-icon far fa-money-bill-alt"></i>
@@ -275,6 +286,18 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('commissions.create')}}"><i class="fas fa-plus-circle"></i>&nbsp; Comisiones</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('documentType.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Tipos de documento</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('EPS.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; EPS</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('holidays.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Vacaciones</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('maritalStatus.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Estado civil</a>
                                 </li>
                             </ul>
                         </div>
@@ -343,7 +366,9 @@
         function quitar()
         {
             $("#ui-basi").removeClass("show");
+            $("#ui-bas").removeClass("show");
             $("#todo").addClass("collapsed");
+            $("#empresas_menu").addClass("collapsed");
         }
 
     </script>

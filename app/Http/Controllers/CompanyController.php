@@ -18,8 +18,9 @@ class CompanyController extends Controller
     }
 
     public function create(){
+        $documentTypes = DocumentType::where('codeDiferent', 1)->get();
         $company = Company::all();
-        return view('company.create', compact('company'));
+        return view('company.create', compact('company','documentTypes'));
     }
 
     public function store(CreateCompanyRequest $request)
@@ -46,7 +47,9 @@ class CompanyController extends Controller
             'documentType_id' => $request['mdl_documentType'],
             'codeCompany' => $request['mdl_codCompany'],
             'companyName' => $request['mdl_nameCommission'],
-
+            'numberEmployees' => $request['mdl_numberEmployees'],
+            'sizeCompany' => $request['mdl_sizeCompanyDB']
         ]);
+        return redirect()->route('company.index');
     }
 }
