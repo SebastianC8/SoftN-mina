@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{asset('plantilla/vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.addons.css')}}">
+    <link rel="stylesheet" href="{{asset('public/css/dataTable.css')}}">
+    <link rel="stylesheet" href="{{asset('public/js/dataTable.min.js')}}">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <link rel="stylesheet" href="{{asset('plantilla/vendors/icheck/skins/all.css')}}">
@@ -258,9 +260,13 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('company.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Consultar empresas</a>
                                     </li>
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="{{route('areas.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Áreas</a>
+                                        </li>
                                 </ul>
                             </div>
                         </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="">
                             <i class="menu-icon far fa-money-bill-alt"></i>
@@ -317,13 +323,13 @@
                                 <li class="nav-item">
                                   <a class="nav-link" href="#">Link</a>
                                 </li>
-                                <li class="nav-item">
+                                 <li class="nav-item">
                                   <a class="nav-link disabled" href="#">Disabled</a>
                                 </li>
                               </ul><br> --}}
                     <div class="row">
                         @yield('contenido')
-                        <footer class="footer" >
+                         <footer class="footer" style="position:absolute; bottom:0px">
                                 <div class="container-fluid clearfix">
                                     <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
                                         <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. Todos los
@@ -354,7 +360,7 @@
 
     <script src="{{asset('/js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('/js/validations.js')}}"></script>
-    {{-- <script src="{{asset('/js/jquery.dataTables.min.js')}}"></script> --}}
+    <script src="{{asset('public/js/jquery.dataTables.min.js')}}"></script>
 
     <script>
         $(document).ready( function () {
