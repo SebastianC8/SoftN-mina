@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class DocumentType extends Model
 {
-    protected $primaryKey='idDocumentType';
+    protected $table = 'document_types';
+    protected $primaryKey ='idDocumentType';
     public $timestamps = false;
-    protected $fillable = ['descriptionDocument'];
+    protected $fillable = ['descriptionDocument','codeDiferent'];
 }

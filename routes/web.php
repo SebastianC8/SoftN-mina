@@ -38,3 +38,50 @@ Route::post('company', ['as' => 'company.store', 'uses' => 'CompanyController@st
 Route::get('company/{id}/show','CompanyController@show');
 //Ruta para actualizar la información de una empresa.
 Route::post('companyUpdate', 'CompanyController@update');
+
+//Ruta para la vista principal de tipo de documento.
+Route::get('documentType', ['as' => 'documentType.index', 'uses' => 'DocumentTypeController@index']);
+//Ruta para registrar un tipo de documento.
+Route::post('documentType', ['as' => 'documentType.store', 'uses' => 'DocumentTypeController@store']);
+//Ruta para editar un tipo de documento.
+Route::get('documentType/{id}/show', 'DocumentTypeController@show');
+//Ruta para actualizar un tipo de documento.
+Route::post('documentType_update', 'DocumentTypeController@update');
+
+//Ruta para la vista principal de EPS.
+Route::get('EPS', ['as' => 'EPS.index', 'uses' => 'EPSController@index']);
+//Ruta para registrar una EPS.
+Route::post('EPS', ['as' => 'EPS.store', 'uses' => 'EPSController@store']);
+//Ruta para editar una EPS.
+Route::get('EPS/{id}/show', 'EPSController@show');
+//Ruta para acutalizar una EPS.
+Route::post('EPS_update', 'EPSController@update');
+//Ruta para cambiar de estado una EPS.
+Route::get('/EPS/estado/{id}/{estado}', 'EPSController@changeStatus');
+
+//Ruta para la vista principal de vacaciones.
+Route::get('holidays', ['as' => 'holidays.index', 'uses' => 'HolidaysController@index']);
+//Ruta para registrar unas vacaciones.
+Route::post('holidays', ['as' => 'holidays.store', 'uses' => 'HolidaysController@store']);
+//Ruta para editar unas vacaciones.
+Route::get('holidays/{id}/show', 'HolidaysController@show');
+//Ruta para actualizar unas vacaciones.
+Route::post('holidays_update', 'HolidaysController@update');
+//Ruta para cambiar el estado de unas vacaciones.
+Route::get('/holidays/estado/{id}/{estado}', 'HolidaysController@changeStatus');
+
+//Ruta para la vista principal de Estado civil.
+Route::get('maritalStatus', ['as' => 'maritalStatus.index', 'uses' => 'MaritalStatusController@index']);
+//Ruta para registrar un estado civil.
+Route::post('maritalStatus', ['as' => 'maritalStatus.store', 'uses' => 'MaritalStatusController@store']);
+//Ruta para editar un estado civil.
+Route::get('maritalStatus/{id}/show', 'MaritalStatusController@show');
+//Ruta para actualizar un estado civil.
+Route::post('maritalStatus_update', 'MaritalStatusController@update');
+//Ruta para cambiar de estado un estado civil.
+Route::get('/maritalStatus/estado/{id}/{estado}', 'MaritalStatusController@changeStatus');
+
+//Ruta para la vista principal de horas extras.
+Route::get('overtimes', ['as' => 'overtimes.index', 'uses' => 'OvertimesController@index']);
+//Ruta para registrar un estado civil.
+Route::post('overtimes', ['as' => 'overtimes.store', 'uses' => 'OvertimesController@store']);

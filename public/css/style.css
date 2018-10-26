@@ -8433,6 +8433,7 @@ pre {
 
 .table {
   width: 100%;
+  border-radius:20px;
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent; }
@@ -15570,7 +15571,7 @@ pre {
   content: "";
   width: 8px;
   height: 8px;
-  background: #e65251;
+  background: #00ce68;
   border-radius: 50%;
   top: 30%;
   -moz-transform: translateY(-30%);

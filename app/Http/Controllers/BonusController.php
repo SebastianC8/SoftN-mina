@@ -47,11 +47,6 @@ class BonusController extends Controller
         return response()->json($bonus);
     }
 
-    public function edit($id)
-    {
-
-    }
-
     public function update(Request $request) //Función para actualizar los bonus.
     {
         $bonus = Bonus::where('idBonus', $request['txt_idBonuses'])->
@@ -64,6 +59,7 @@ class BonusController extends Controller
     public function changeStatus($id, $status) //Función para cambiar el estado del bonus.
     {
         $bonus = Bonus::findOrFail($id)->update(["status" => $status]);
+        swal()->message('Felicidades', 'El estado del bonus se ha cambiado correctamente.','success');
         return redirect()->route('bonus.create');
     }
 }

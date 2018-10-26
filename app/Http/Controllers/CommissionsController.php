@@ -34,6 +34,7 @@ class CommissionsController extends Controller
 
     public function changeStatus($id, $status){
         $commission = Commissions::findOrFail($id)->update(["status" => $status]);
+        swal()->message('Felicidades', 'El estado de la comisión se ha cambiado correctamente.','success');
         return redirect()->route('commissions.create');
     }
 }
