@@ -163,7 +163,23 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown d-none d-xl-inline-block">
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          <span class="fa fa-user fa-lg"></span>
+                        </a>
+                        <div style="position: absolute;margin-top: 9px;right: -11px;left: inherit;" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a  class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Cerrar sesión') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    {{-- <li class="nav-item dropdown d-none d-xl-inline-block">
                         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
                             <span class="profile-text"> Sebastián Corrales</span>
@@ -190,7 +206,7 @@
                                 Cerrar sesión
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                     data-toggle="offcanvas">
@@ -210,9 +226,12 @@
                                     <img src="{{asset('plantilla/images/logoFavicon.png')}}" alt="profile image">
                                 </div>
                                 <div class="text-wrapper">
-                                    <p class="profile-name" style="color:white">Sebastián Corrales</p>
+                                    {{-- <p class="profile-name" style="color:white">Sebastián Corrales</p> --}}
+                                    <a class="profile-name" style="color:white">
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </a>
                                     <div>
-                                        <small class="designation text-muted">Administrador</small>
+                                        <small class="designation text-muted">{{ Auth::user()->email }}</small>
                                         <span class="status-indicator online"></span>
                                     </div>
                                 </div>
@@ -313,6 +332,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('professions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Profesiones </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('layoffs.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Cesantías</a>
                                 </li>
                             </ul>
                         </div>
