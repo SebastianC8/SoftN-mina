@@ -29,15 +29,15 @@
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editProfessions({{$item->idProfession}})" title="Editar"><i
                             class="fas fa-edit"></i></button>
 
-                            {{-- @if($item->status==1)
-                            <a href="/pensions/estado/{{$item->idPensions}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
+                            @if($item->status==1)
+                            <a href="/professions/estado/{{$item->idProfession}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
                             class="fas fa-exchange-alt"></i></a>
 
                             @else
-                            <a href="/pensions/estado/{{$item->idPensions}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
+                            <a href="/professions/estado/{{$item->idProfession}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
                             class="fas fa-exchange-alt"></i></a>
 
-                            @endif --}}
+                            @endif
                         </td>
                     </tr>
                     @endforeach

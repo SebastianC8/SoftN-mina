@@ -297,19 +297,22 @@
                                     <a class="nav-link" href="{{route('documentType.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Tipos de documento</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="{{route('EPS.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; EPS</a>
+                                    <a class="nav-link" href="{{route('EPS.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; EPS</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="{{route('holidays.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Vacaciones</a>
+                                    <a class="nav-link" href="{{route('holidays.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Vacaciones</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="{{route('maritalStatus.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Estado civil</a>
+                                    <a class="nav-link" href="{{route('maritalStatus.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Estado civil</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="{{route('overtimes.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Horas extras</a>
+                                    <a class="nav-link" href="{{route('overtimes.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Horas extras</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link" href="{{route('pensions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Pensiones </a>
+                                    <a class="nav-link" href="{{route('pensions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Pensiones </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('professions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Profesiones </a>
                                 </li>
                             </ul>
                         </div>

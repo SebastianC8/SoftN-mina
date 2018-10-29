@@ -32,4 +32,10 @@ class ProfessionsController extends Controller
         swal()->message('Felicidades', 'La profesión ha sido actualizada correctamente.','success');
         return redirect()->route('professions.index');
     }
+
+    public function changeStatus($id, $status){
+        $professions = Professions::where('idProfession', $id)->update(["status" => $status]);
+        swal()->message('Felicidades', 'El estado de la profesión se ha cambiado correctamente.','success');
+        return redirect()->route('professions.index');
+    }
 }
