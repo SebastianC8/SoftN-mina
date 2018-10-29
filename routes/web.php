@@ -16,7 +16,7 @@ Route::get('bonus/{id}/show', 'BonusController@show');
 Route::get('areas',['as'=>'areas.index','uses'=>'AreasController@index']);
 //Ruta para crear areas
 Route::post('areas', ['as' => 'areas.store', 'uses' => 'AreasController@store']);
-//Ruta para mapear area en el modal 
+//Ruta para mapear area en el modal
 Route::get('area/{area}/show','AreasController@show');
 //Ruta para editar area
 Route::post('area/update', ['as'=>'areas.update','uses'=>'AreasController@update']);
@@ -94,5 +94,33 @@ Route::get('/maritalStatus/estado/{id}/{estado}', 'MaritalStatusController@chang
 
 //Ruta para la vista principal de horas extras.
 Route::get('overtimes', ['as' => 'overtimes.index', 'uses' => 'OvertimesController@index']);
-//Ruta para registrar un estado civil.
+//Ruta para registrar una hora extra.
 Route::post('overtimes', ['as' => 'overtimes.store', 'uses' => 'OvertimesController@store']);
+//Ruta para editar una hora extra.
+Route::get('overtimes/{id}/show', 'OvertimesController@show');
+//Ruta para actualizar una hora extra.
+Route::post('overtimes_update', 'OvertimesController@update');
+//Ruta para cambiar el estado de unas vacaciones.
+Route::get('/overtimes/estado/{id}/{estado}', 'OvertimesController@changeStatus');
+
+//Ruta para la vista principal de pensiones.
+Route::get('pensions', ['as' => 'pensions.index', 'uses' => 'PensionsController@index']);
+//Ruta para registrar una pensión.
+Route::post('pensions', ['as' => 'pensions.store', 'uses' => 'PensionsController@store']);
+//Ruta para editar una pensión.
+Route::get('pensions/{id}/show', 'PensionsController@show');
+//Ruta para actualizar una pensión.
+Route::post('pensions_update', 'PensionsController@update');
+//Ruta para cambiar de estado una pensión.
+Route::get('/pensions/estado/{id}/{estado}', 'PensionsController@changeStatus');
+
+//Ruta para la vista principal de profesiones.
+Route::get('professions', ['as' => 'professions.index', 'uses' => 'ProfessionsController@index']);
+//Ruta para registrar una profesión.
+Route::post('professions', ['as' => 'professions.store', 'uses' => 'ProfessionsController@store']);
+//Ruta para editar una profesión.
+Route::get('professions/{id}/show', 'ProfessionsController@show');
+//Ruta para actualizar una profesión.
+Route::post('professions_update', 'ProfessionsController@update');
+//Ruta para cambiar de estado una profesión.
+Route::get('/professions/estado/{id}/{estado}', 'ProfessionsController@changeStatus');

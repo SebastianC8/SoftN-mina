@@ -17,30 +17,32 @@
                     <tr>
                         <th>Descripción</th>
                         <th>Porcentaje</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($marital_status as $item)
+                    @foreach ($overtimes as $item)
                     <tr>
-                        <td>{{$item->nameMaritalStatus}}</td>
+                        <td>{{$item->descriptionOvertime}}</td>
+                        <td>{{$item->percent}}</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
-                            <button class="btn btn-icons btn-rounded btn-outline-info" onclick="edit_maritalStatus({{$item->idMaritalStatus}})" title="Editar"><i
+                            <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editOvertimes({{$item->idOvertime}})" title="Editar"><i
                                 class="fas fa-edit"></i></button>
 
                             @if($item->status==1)
-                            <a href="/maritalStatus/estado/{{$item->idMaritalStatus}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
+                            <a href="/overtimes/estado/{{$item->idOvertime}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
                             class="fas fa-exchange-alt"></i></a>
 
                             @else
-                            <a href="/maritalStatus/estado/{{$item->idMaritalStatus}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
+                            <a href="/overtimes/estado/{{$item->idOvertime}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
                             class="fas fa-exchange-alt"></i></a>
 
                             @endif
                         </td>
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -48,12 +50,27 @@
 </div>
 </div>
 @endif
+
 @include('overtimes.ModalOvertimes')
+@include('overtimes.ModalOvertimesEdit')
+
 </div>
 @stop
 
 <script>
     function addOvertimes(){
         $("#modal_overtimes").modal();
+    }
+</script>
+
+<script>
+    function editOvertimes(id){
+        $.get("{{url('overtimes')}}" + '/' + id + '/show', (data)=>{
+            console.log(data);
+            $("#idOvertime").val(data.idOvertime);
+            $("#descriptionOvertime_edit").val(data.descriptionOvertime);
+            $("#percent_edit").val(data.percent);
+        })
+        $("#modal_overtimes_edit").modal();
     }
 </script>

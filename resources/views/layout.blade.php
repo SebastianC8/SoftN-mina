@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.addons.css')}}">
     <link rel="stylesheet" href="{{asset('public/css/dataTable.css')}}">
-    <link rel="stylesheet" href="{{asset('public/js/dataTable.min.js')}}">
+    <link rel="stylesheet" href="{{asset('/js/dataTable.min.js')}}">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <link rel="stylesheet" href="{{asset('plantilla/vendors/icheck/skins/all.css')}}">
@@ -305,6 +305,12 @@
                                 <li class="nav-item">
                                         <a class="nav-link" href="{{route('maritalStatus.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Estado civil</a>
                                 </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('overtimes.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Horas extras</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{route('pensions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Pensiones </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -358,9 +364,10 @@
     <script src="{{asset('plantilla/js/off-canvas.js')}}"></script>
     <script src="{{asset('plantilla/js/misc.js')}}"></script>
 
+    {{-- <script src="{{asset('public/js/jquery.dataTables.min.js')}}"></script> --}}
     <script src="{{asset('/js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('/js/validations.js')}}"></script>
-    <script src="{{asset('public/js/jquery.dataTables.min.js')}}"></script>
+
 
     <script>
         $(document).ready( function () {
