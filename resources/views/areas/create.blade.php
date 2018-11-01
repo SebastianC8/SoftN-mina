@@ -50,8 +50,7 @@
 <script>
         function addAreas()
         {
-            $('#modal_areas').modal();
-            // $('#form_bonuses')[0].reset();
+            $('#modal_areas').modal();            
         }
 </script>
 
@@ -65,8 +64,6 @@ function updateAreass(idArea)
      $("#nameAre").val(data.nameArea);
      $("#bossAre").val(data.bossArea);
      $('#modal_editar').modal(idArea);
-
-
     })
     
 }

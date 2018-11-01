@@ -327,6 +327,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('layoffs.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Cesantías</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('nucleusfamily.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Parentezco</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
