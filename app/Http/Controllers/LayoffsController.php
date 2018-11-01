@@ -21,7 +21,8 @@ class LayoffsController extends Controller
      */
     public function index()
     {
-        return view('layoffs.index');
+        $layoffs= layoffs::all();
+        return view('layoffs.index',compact('layoffs'));
     }
 
     /**
@@ -46,7 +47,12 @@ class LayoffsController extends Controller
             'descriptionLayoffs'=>$request['descriptionLayoffs'],
             'valueLayoffs' =>$request['valueLayoffs']
         ]);
-        
+        if($funciona){
+            swal()->message('Felicidades', 'La cesantía se registró correctamente.','success');        
+        }
+        else{
+            swal()->message('Error', 'La cesantía no se registró.','success');        
+        }
         return redirect()->route('layoffs.index');
     }
 
@@ -58,8 +64,9 @@ class LayoffsController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $layoffs= layoffs::findOrFail($id);
+        return response()->json($layoffs);
+    } 
 
     /**
      * Show the form for editing the specified resource.
@@ -69,7 +76,7 @@ class LayoffsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -79,9 +86,20 @@ class LayoffsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $layoffss=layoffs::where('idLayoffs', $request['idLayoffs_edit'])->
+        update([
+            'descriptionLayoffs' => $request['descriptionLayoffsE'], 
+            'valueLayoffs' => $request['valueLayoffs']
+        ]);
+        if($layoffss){
+            swal()->message('Felicidades', 'La cesantía se actualizó correctamente.','success');        
+        }else{
+            swal()->message('Error', 'La cesantía no se pudo actualizar.','success');        
+
+        }
+        return redirect()->route('layoffs.index');
     }
 
     /**
@@ -93,5 +111,13 @@ class LayoffsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeStatus($id,$status){
+        $layoffs=layoffs::where('idLayoffs',$id)->update(["status"=>$status]);
+        swal()->message('Felicidades', 'El estado de la cesantía se ha cambiado correctamente.','success');
+        return redirect()->route('layoffs.index');
+
+
     }
 }

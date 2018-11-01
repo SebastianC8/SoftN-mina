@@ -56,6 +56,7 @@
     function editDocumentType(id){
         $.get("{{url('documentType')}}" + '/' + id + '/show', (data)=>{
             var value = data.codeDiferent;
+            console.log(data)
             $("#idDocumentType_edit").val(data.idDocumentType);
             $("#descriptionDocument_edit").val(data.descriptionDocument);
             if(data.codeDiferent==0){
