@@ -51,7 +51,7 @@
 </div>
 @endif
 
-@include('bonus.ModalBonuses')
+@include('bonus.mdl_bonuses')
 
 </div>
 @stop

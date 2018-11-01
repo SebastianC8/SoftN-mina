@@ -48,8 +48,8 @@
 </div>
 </div>
 @endif
-@include('eps.ModalEPS')
-@include('eps.ModalEPSEdit')
+@include('eps.mdl_eps')
+@include('eps.mdl_eps_edit')
 </div>
 @stop
 

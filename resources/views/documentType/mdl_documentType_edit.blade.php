@@ -26,7 +26,7 @@
                                     <div class="form-radio">
                                         <label class="form-check-label">
                                             <input type="radio" class="form-check-input" name="codeDiferent_edit" id="codeDiferent_editE"
-                                                value="1"> Empresa
+                                                value="1"> <i class="input-helper"></i>Empresa
                                         </label>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                     <div class="form-radio">
                                         <label class="form-check-label">
                                             <input type="radio" class="form-check-input" name="codeDiferent_edit" id="codeDiferent_edit"
-                                                value="0"> Persona
+                                                value="0"><i class="input-helper"></i> Persona
                                         </label>
                                     </div>
                                 </div>

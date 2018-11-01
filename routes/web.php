@@ -28,6 +28,11 @@ Route::post('bonus', ['as' => 'bonus.store', 'uses' => 'BonusController@store'])
 Route::get('bonus', ['as' => 'bonus.index', 'uses' => 'BonusController@index']);
 //Ruta para editar bonus.
 Route::get('bonus/{id}/show', 'BonusController@show');
+//Ruta para actualizar bonus.
+Route::put('bonus/{id}', ['as' => 'bonus.update', 'uses' => 'BonusController@update']);
+//Ruta para cambiar de estado un bonus.
+Route::get('/bonus/estado/{id}/{estado}', 'BonusController@changeStatus');
+
 //Ruta para ir a areas
 Route::get('areas',['as'=>'areas.index','uses'=>'AreasController@index']);
 //Ruta para crear areas
@@ -38,11 +43,7 @@ Route::get('area/{area}/show','AreasController@show');
 Route::post('area/update', ['as'=>'areas.update','uses'=>'AreasController@update']);
 //Ruta para cambiar estado a un área.
 Route::get('/area/estado/{id}/{estado}', 'AreasController@changeStatus');
-Route::get('bonus/{id}/show',  'BonusController@show');
-//Ruta para actualizar bonus.
-Route::put('bonus/{id}', ['as' => 'bonus.update', 'uses' => 'BonusController@update']);
-//Ruta para cambiar de estado un bonus.
-Route::get('/bonus/estado/{id}/{estado}', 'BonusController@changeStatus');
+
 //Ruta para la vista principal de Comisiones.
 Route::get('commissions', ['as' => 'commissions.create', 'uses' => 'CommissionsController@index']);
 //Ruta para registrar un comisión.
@@ -147,3 +148,78 @@ Route::get('professions/{id}/show', 'ProfessionsController@show');
 Route::post('professions_update', 'ProfessionsController@update');
 //Ruta para cambiar de estado una profesión.
 Route::get('/professions/estado/{id}/{estado}', 'ProfessionsController@changeStatus');
+
+//Ruta para la vista principal de cargos.
+Route::get('rateJobs', ['as' => 'rateJobs.index', 'uses' => 'RatesJobController@index']);
+//Ruta para el registro de un cargo.
+Route::post('rateJobs', ['as' => 'rateJobs.store', 'uses' => 'RatesJobController@store']);
+//Ruta para editar un cargo.
+Route::get('rateJobs/{id}/show', 'RatesJobController@show');
+//Ruta para actualizar un cargo.
+Route::post('rateJobs_update', 'RatesJobController@update');
+//Ruta para cambiar de estado un cargo.
+Route::get('/rateJobs/estado/{id}/{estado}', 'RatesJobController@changeStatus');
+
+//Ruta para la vista principal de resoluciones.
+Route::get('resolutions', ['as' => 'resolutions.index', 'uses' => 'ResolutionsController@index']);
+//Ruta para el registro de una resolución.
+Route::post('resolutions', ['as' => 'resolutions.store', 'uses' => 'ResolutionsController@store']);
+//Ruta para editar una resolución.
+Route::get('resolutions/{id}/show', 'ResolutionsController@show');
+//Ruta para actualizar una resolución.
+Route::post('resolutions_update', 'ResolutionsController@update');
+//Ruta para cambiar de estado una resolución.
+Route::get('/resolutions/estado/{id}/{estado}', 'ResolutionsController@changeStatus');
+
+//Ruta para la vista principal de tipo de contrato.
+Route::get('typeContract', ['as' => 'typeContract.index', 'uses' => 'TypeContractController@index']);
+//Ruta para el registro de un tipo de contrato.
+Route::post('typeContract', ['as' => 'typeContract.store', 'uses' => 'TypeContractController@store']);
+//Ruta para editar un tipo de contrato.
+Route::get('typeContract/{id}/show', 'TypeContractController@show');
+//Ruta para actualizar un tipo de contrato.
+Route::post('typeContract_update', 'TypeContractController@update');
+//Ruta para cambiar de estado un tipo de contrato.
+Route::get('/typeContract/estado/{id}/{estado}', 'TypeContractController@changeStatus');
+
+//Ruta para la vista principal de fondo de compensación.
+Route::get('compensationFound', ['as' => 'compensationFound.index', 'uses' => 'CompensationFoundController@index']);
+//Ruta para el registro de un fondo de compensación.
+Route::post('compensationFound', ['as' => 'compensationFound.store', 'uses' => 'CompensationFoundController@store']);
+//Ruta para editar un fondo de compensación.
+Route::get('compensationFound/{id}/show', 'CompensationFoundController@show');
+//Ruta para actualizar un fondo de compensación.
+Route::post('compensationFound_update', 'CompensationFoundController@update');
+
+//Ruta para la vista principal de deducciones.
+Route::get('deductions', ['as' => 'deductions.index', 'uses' => 'DeductionsController@index']);
+//Ruta para el registro de una deducción.
+Route::post('deductions', ['as' => 'deductions.store', 'uses' => 'DeductionsController@store']);
+//Ruta para editar una deducción.
+Route::get('deductions/{id}/show', 'DeductionsController@show');
+//Ruta para actualizar una deducción.
+Route::post('deductions_update', 'DeductionsController@update');
+//Ruta para cambiar de estado una deducción.
+Route::get('/deductions/estado/{id}/{estado}', 'DeductionsController@changeStatus');
+
+//Ruta para la vista principal de ARL.
+Route::get('arl', ['as' => 'arl.index', 'uses' => 'ARLController@index']);
+//Ruta para el registro de una ARL.
+Route::post('arl', ['as' => 'arl.store', 'uses' => 'ARLController@store']);
+//Ruta para editar una ARL.
+Route::get('arl/{id}/show', 'ARLController@show');
+//Ruta para actualizar una ARL.
+Route::post('arl_update', 'ARLController@update');
+//Ruta para cambiar de estado una ARL.
+Route::get('/arl/estado/{id}/{estado}', 'ARLController@changeStatus');
+
+//Ruta para la vista de crear empleados.
+Route::get('employees/create', ['as' => 'employees.create', 'uses' => 'EmployeesController@create']);
+//Ruta para la vista de listar empleados.
+Route::get('employees', ['as' => 'employees.index', 'uses' => 'EmployeesController@index']);
+//Ruta para registrar un empleado.
+Route::post('employees', ['as' => 'employees.store', 'uses' => 'EmployeesController@store']);
+//Ruta para obtener información de un empleado.
+Route::get('employees/{id}/show', 'EmployeesController@show');
+//Ruta para editar la información de un empleado.
+Route::get('employees/edit', 'EmployeesController@edit');

@@ -25,17 +25,19 @@
                                 <div class="col-sm-6">
                                     <div class="form-radio">
                                         <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="codeDiferent" id="codeDiferent"
-                                                value="1" checked> Empresa
+                                            <input type="radio" class="form-check-input" name="codeDiferent" id="codeDiferentE"
+                                                value="1" checked> <i class="input-helper"></i>Empresa
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="form-radio">
                                         <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="codeDiferent" id="codeDiferent"
-                                                value="0"> Persona
+                                            <input type="radio" class="form-check-input input-helper" name="codeDiferent" id="codeDiferent" value="0"
+                                          ><i class="input-helper"></i> Persona
                                         </label>
+
+
                                     </div>
                                 </div>
                             </div>

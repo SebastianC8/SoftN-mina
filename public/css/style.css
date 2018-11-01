@@ -59,6 +59,12 @@
 /* === SCSS Compass Functions === */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+/* Edicion modal */
+@media (min-width: 576px){
+.modalGrande {
+    max-width: 840px !important;
+    margin: 30px auto;}
+}
 @-moz-keyframes flash {
   0% {
     opacity: 1; }
@@ -15435,18 +15441,19 @@ pre {
     .form-radio .form-check-label {
       padding-left: 0;
       padding-right: 30px; }
+      /*  */
     .form-check .form-check-label input,
     .form-radio .form-check-label input {
-      position: absolute;
-      margin-left: -20px;
-      margin-top: 4px\9;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      cursor: pointer;
-      opacity: 0;
-      filter: alpha(opacity=0);
-      margin-top: 0; }
+        position: absolute;
+        margin-left: -20px;
+        margin-top: 4px\9;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        margin-top: 0; }
       .rtl .form-check .form-check-label input, .rtl
       .form-radio .form-check-label input {
         left: auto;

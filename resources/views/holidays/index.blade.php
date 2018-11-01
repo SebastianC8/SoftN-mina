@@ -52,8 +52,8 @@
 </div>
 </div>
 @endif
-@include('holidays.ModalHolidays')
-@include('holidays.ModalHolidaysEdit')
+@include('holidays.mdl_holidays')
+@include('holidays.mdl_holidays_edit')
 </div>
 @stop
 

@@ -39,8 +39,8 @@
 </div>
 @endif
 
-@include('documentType.mdlDocumentTypeEdit')
-@include('documentType.mdlDocumentType')
+@include('documentType.mdl_documentType')
+@include('documentType.mdl_documentType_edit')
 
 
 </div>

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('plantilla/vendors/css/vendor.bundle.addons.css')}}">
     <link rel="stylesheet" href="{{asset('public/css/dataTable.css')}}">
-    <link rel="stylesheet" href="{{asset('/js/dataTable.min.js')}}">
+
     <!-- endinject -->
     <!-- plugin css for this page -->
     <link rel="stylesheet" href="{{asset('plantilla/vendors/icheck/skins/all.css')}}">
@@ -259,8 +259,7 @@
                                     <a class="nav-link" href="">Registrar empleados</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Consultar
-                                        empleados</a>
+                                    <a class="nav-link" href="{{route('holidays.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Vacaciones</a>
                                 </li>
                             </ul>
                         </div>
@@ -319,9 +318,6 @@
                                     <a class="nav-link" href="{{route('EPS.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; EPS</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{route('holidays.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Vacaciones</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href="{{route('maritalStatus.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Estado civil</a>
                                 </li>
                                 <li class="nav-item">
@@ -335,6 +331,21 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('layoffs.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Cesantías</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('rateJobs.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Cargos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('resolutions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Resoluciones</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('typeContract.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Tipo de contrato</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('compensationFound.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Compensaciones</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('deductions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Deducciones</a>
                                 </li>
                             </ul>
                         </div>
@@ -390,6 +401,7 @@
     <script src="{{asset('plantilla/js/misc.js')}}"></script>
 
     {{-- <script src="{{asset('public/js/jquery.dataTables.min.js')}}"></script> --}}
+    <script src="{{asset('/js/dataTable.min.js')}}">
     <script src="{{asset('/js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('/js/validations.js')}}"></script>
 

@@ -57,7 +57,7 @@
 </div>
 @endif
 
-@include('company.ModalCompany')
+@include('company.mdl_company')
 
 </div>
 @stop

@@ -49,8 +49,8 @@
 </div>
 @endif
 
-@include('commission.ModalCommissions')
-@include('commission.ModalCommissionEdit')
+@include('commission.mdl_commissions')
+@include('commission.mdl_commisions_edit')
 
 </div>
 @stop
