@@ -65,6 +65,7 @@
     max-width: 840px !important;
     margin: 30px auto;}
 }
+
 @-moz-keyframes flash {
   0% {
     opacity: 1; }
@@ -7539,6 +7540,7 @@ a {
   color: #007bff;
   text-decoration: none;
   background-color: transparent;
+  border-radius:20px;
   -webkit-text-decoration-skip: objects; }
   a:hover {
     color: #0056b3;
@@ -9024,6 +9026,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   .btn.disabled, .btn:disabled {
     opacity: 0.65; }
   .btn:not(:disabled):not(.disabled) {
+    border-radius:20px;
     cursor: pointer; }
   .btn:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active {
     background-image: none; }
@@ -9031,6 +9034,17 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none; }
+
+.btn-add{
+    margin-right: -101px;
+    margin-top: -50px;
+}
+
+.btn-mine{
+    margin-left: 306px;
+    margin-top: -51px;
+    height: 32px;
+}
 
 .btn-primary {
   color: #fff;
@@ -10005,14 +10019,25 @@ tbody.collapse.show {
   .nav-link.disabled {
     color: #6c757d; }
 
+    .nav-my-tabs{
+        border: 1px solid transparent;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        border-bottom: 9px;
+    }
+
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }
   .nav-tabs .nav-item {
     margin-bottom: -1px; }
   .nav-tabs .nav-link {
     border: 1px solid transparent;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem; }
+    /* border-top-left-radius: 0.25rem; */
+    /* border-top-right-radius: 0.25rem; */
+    border-bottom: 0px;
+    margin-bottom: 5px;
+    margin-right: 4px;
+ }
     .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
       border-color: #e9ecef #e9ecef #dee2e6; }
     .nav-tabs .nav-link.disabled {
@@ -10021,8 +10046,8 @@ tbody.collapse.show {
       border-color: transparent; }
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
-    color: #495057;
-    background-color: #fff;
+    color: #fdfdfd;
+    background-color: #304a65;
     border-color: #dee2e6 #dee2e6 #fff; }
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
@@ -10053,6 +10078,9 @@ tbody.collapse.show {
   display: block; }
 
 .navbar {
+    border-radius: 0px !important;
+margin-bottom: 0px !important;
+border: 0px !important;
   position: relative;
   display: flex;
   flex-wrap: wrap;

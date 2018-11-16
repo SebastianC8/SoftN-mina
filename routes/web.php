@@ -213,8 +213,8 @@ Route::post('arl_update', 'ARLController@update');
 //Ruta para cambiar de estado una ARL.
 Route::get('/arl/estado/{id}/{estado}', 'ARLController@changeStatus');
 
-//Ruta para la vista de crear empleados.
-Route::get('employees/create', ['as' => 'employees.create', 'uses' => 'EmployeesController@create']);
+//Ruta para registrar contratos
+Route::get('contract_employees', ['as' => 'employees.create', 'uses' => 'EmployeesController@view']);
 //Ruta para la vista de listar empleados.
 Route::get('employees', ['as' => 'employees.index', 'uses' => 'EmployeesController@index']);
 //Ruta para registrar un empleado.
@@ -222,4 +222,27 @@ Route::post('employees', ['as' => 'employees.store', 'uses' => 'EmployeesControl
 //Ruta para obtener información de un empleado.
 Route::get('employees/{id}/show', 'EmployeesController@show');
 //Ruta para editar la información de un empleado.
-Route::get('employees/edit', 'EmployeesController@edit');
+Route::get('employees/edit/{id}', 'EmployeesController@edit');
+//Ruta para actualizar una empleado.
+Route::post('employees_update', 'EmployeesController@update');
+//Ruta para cambiar el estado de un empleado.
+Route::get('/employees/estado/{id}/{estado}', 'EmployeesController@changeStatus');
+//Ruta para la vista de empleados x vinculaciones
+Route::get('employees/vinculations', ['as' => 'employees.vinculations', 'uses' => 'EmployeesController@getVinculations']);
+//Ruta para la vista de empleados x nivel educativo.
+Route::get('employees/level_educative', ['as' => 'employees.level_educative', 'uses' => 'EmployeesController@get_employee_']);
+//Ruta para consultar los niveles educativos de un empleado.
+Route::get('employees/{id}/get_lvl', 'EmployeesController@get_lvl_Educative');
+
+
+//Ruta para la vista crear contratos.
+Route::get('contracts/create', ['as' => 'contracts.create', 'uses' => 'ContractsController@create']);
+//Ruta para la vista de listar contratos.
+Route::get('contracts', ['as' => 'contracts.index', 'uses' => 'ContractsController@index']);
+//Ruta para registrar un contrato.
+Route::post('contracts', ['as' => 'contracts.store', 'uses' => 'ContractsController@store']);
+//Ruta para obtener información de un contrato.
+Route::get('contracts/{id}/show', 'ContractsController@show');
+
+
+

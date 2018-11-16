@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+{{-- <html lang="en"> --}}
 
 <head>
     <!-- Required meta tags -->
@@ -27,6 +27,11 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('plantilla/images/logoSena.png')}}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
 </head>
 
 <body onload="quitar()">
@@ -256,7 +261,13 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Registrar empleados</a>
+                                    <a class="nav-link" href="{{route('employees.create')}}">Registrar empleados</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('employees.index')}}">Consultar empleados</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('employees.vinculations')}}">Consultar afiliaciones</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('holidays.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Vacaciones</a>
@@ -371,7 +382,7 @@
                               </ul><br> --}}
                     <div class="row">
                         @yield('contenido')
-                         <footer class="footer" style="position:absolute; bottom:0px">
+                         <footer class="footer col-md-12" style="">
                                 <div class="container-fluid clearfix">
                                     <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
                                         <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. Todos los
@@ -391,6 +402,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    {{-- <script src="{{asset('/js/jquery-3.2.1.min.js')}}"></script> --}}
     <script src="{{asset('plantilla/vendors/js/vendor.bundle.base.js')}}"></script>
     <script src="{{asset('plantilla/vendors/js/vendor.bundle.addons.js')}}"></script>
     <!-- endinject -->
@@ -401,6 +413,7 @@
     <script src="{{asset('plantilla/js/misc.js')}}"></script>
 
     {{-- <script src="{{asset('public/js/jquery.dataTables.min.js')}}"></script> --}}
+
     <script src="{{asset('/js/dataTable.min.js')}}">
     <script src="{{asset('/js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('/js/validations.js')}}"></script>
@@ -408,7 +421,10 @@
 
     <script>
         $(document).ready( function () {
-            $('#tableBonus').DataTable();
+            $('#tableBonus').DataTable({
+                responsive:true
+            });
+            // $('#levelEducative').select2();
         });
     </script>
 
