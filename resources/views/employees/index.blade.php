@@ -33,7 +33,7 @@
                         <th>Dirección</th>
                         <th>Email</th>
                         <th>Teléfono</th>
-                        <th>Estado</th>
+                        {{-- <th>Estado</th> --}}
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -46,7 +46,7 @@
                         <td>{{$item->address}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{$item->Phone}}</td>
-                        <td>{{$item->statusEmployee==1?"Activo":"Inactivo"}}</td>
+                        {{-- <td>{{$item->statusEmployee==1?"Activo":"Inactivo"}}</td> --}}
                         <td>
                             <a class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" href="{{url('employees/edit/'.$item->idemployees)}}"><i
                             class="fas fa-edit"></i></a>
@@ -82,7 +82,7 @@
     function getEmployee(id){
         $.get("{{url('employees')}}" + '/' + id + '/show', (data)=>{
             $("#body_table_employees").empty();
-            $("#body_table_employees").append("<tr><td>"+data.entryDate+"</td><td>"+data.numberSons+"</td><td>"+data.levelEducative+"</td><td>"+data.nameMaritalStatus+"</td><tr>");
+            $("#body_table_employees").append("<tr><td>"+data.entryDate+"</td><td>"+data.numberSons+"</td><td>"+data.nameMaritalStatus+"</td><td>"+data.descriptionContract+"</td><tr>");
         })
         $("#modal_employees").modal();
     }

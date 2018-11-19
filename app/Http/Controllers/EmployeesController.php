@@ -29,11 +29,12 @@ use App\Models\Employees_Has_Professions;
 use App\Http\Requests\CreateEmployeesRequest;
 use Illuminate\Http\Request;
 
+
 class EmployeesController extends Controller
 {
     public function index(){
-        $employees = Employees::join('document_types', 'document_types.idDocumentType', 'employees.documentType_id')->
-        join('maritalstatus', 'maritalstatus.idMaritalStatus', 'maritalStatus_id')
+        $employees = Employees::join('document_types', 'document_types.idDocumentType', 'employees.documentType_id')
+        ->join('maritalstatus', 'maritalstatus.idMaritalStatus', 'maritalStatus_id')
         ->get();
         return view('employees.index', compact('employees'));
     }
@@ -132,10 +133,11 @@ class EmployeesController extends Controller
     }
 
     public function show($id){
-        $employee = Employees::join('maritalstatus', 'maritalstatus.idMaritalStatus', 'maritalStatus_id')
-        ->findOrFail($id);
+        $employee = Contracts_Has_Employees::join('contracts', 'contracts.idcontracts', 'contracts_has_employees.contracts_id')
+        ->join('employees', 'employees.idemployees', 'contracts_has_employees.employees_id')
+        ->join('maritalstatus', 'maritalstatus.idMaritalStatus', 'employees.maritalStatus_id')
+        ->where('contracts_has_employees.employees_id', $id)->first();
         return response()->json($employee);
-
     }
 
     public function edit($id){
@@ -191,9 +193,11 @@ class EmployeesController extends Controller
     }
 
     public function get_employee_(){
+        $professions = Professions::all();
+        $level_educative = LevelEducative::all();
         $employee = Employees::join('document_types', 'document_types.idDocumentType', 'employees.documentType_id')
         ->get();
-        return view('employees.level_educative', compact('employee'));
+        return view('employees.level_educative', compact('employee', 'level_educative', 'professions'));
     }
 
     public function get_lvl_Educative($id){

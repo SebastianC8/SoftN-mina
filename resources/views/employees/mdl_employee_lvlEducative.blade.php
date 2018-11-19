@@ -1,6 +1,6 @@
 <div class="modal fade" id="modal_employees_level_educative" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" style="max-width: 694px !important;" role="document">
+    <div class="modal-dialog" style="max-width: 856px !important;" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ver detalle</h5>

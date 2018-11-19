@@ -157,8 +157,6 @@
 
     <div class="row setup-content" id="step-2">
         <div class="col-md-12">
-
-
             <div class="col-md-4">
                 <div class="col-md-12">
                     <br>
@@ -499,7 +497,7 @@
         }
         else{
             $("#table_lvlEducative_Professions").append(
-                "<tr id='tr"+id_levelEducative+"'><input type='hidden' name='level_educative_id[]' value='"+id_levelEducative+"'><td>"+text_levelEducative+"</td><input type='hidden' name='professions_id[]' value='"+id_Professions+"'><td>"+text_Professions+"</td><input type='hidden' name='yearStart_val[]' value='"+yearStart+"'><td>"+yearStart+"</td><input type='hidden' name='yearEnd_val[]' value='"+yearEnd+"'><td>"+yearEnd+"</td><td><button title='Eliminar de la lista' type='button' onclick='$("+'"'+"#tr"+id_levelEducative+'"'+").remove()' class='btn btn-icons btn-rounded btn-danger'><i class='fas fa-trash'></i></buttonclass></td></tr>"
+                "<tr id='tr"+id_levelEducative+"'><input type='hidden' name='level_educative_id[]' value='"+id_levelEducative+"'><td>"+text_levelEducative+"</td><input type='hidden' name='professions_id[]' value='"+id_Professions+"'><td>"+text_Professions+"</td><input type='hidden' name='yearStart_val[]' value='"+yearStart+"'><td>"+yearStart+"</td><input type='hidden' name='yearEnd_val[]' value='"+yearEnd+"'><td>"+yearEnd+"</td><td><button title='Eliminar de la lista' type='button' onclick='$("+'"'+"#tr"+id_levelEducative+'"'+").remove()' class='btn btn-icons btn-rounded btn-danger'><i class='fas fa-trash'></i></button></td></tr>"
             );
         }
     }

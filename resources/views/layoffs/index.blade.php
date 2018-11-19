@@ -2,7 +2,7 @@
 @section('contenido')
 
 @include('layoffs.CreateLayoffs')
-@include('commission.ModalCommissionEdit')
+@include('layoffs.EditLayoffs')
 
 
 <div class="col-12 stretch-card">
@@ -24,26 +24,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($commissions as $item)
+                    @foreach ($layoffs as $item)
                     <tr>
-                        <td>{{$item->nameCommission}}</td>
+                        <td>{{$item->descriptionLayoffs}}</td>
+                        <td>{{$item->valueLayoffs}}</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
-                            <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="editCommissions({{$item->idCommissions}})"><i
+                            <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="updateLayoffs({{$item->idLayoffs}})"><i
                             class="fas fa-edit"></i></button>
 
                             @if($item->status == 1)
-                            <a href="/commissions/estado/{{$item->idCommissions}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
+                            <a href="/layoffs/cambiarEstado/{{$item->idLayoffs}}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i
                                 class="fas fa-exchange-alt"></i></a>
 
                             @else
-                            <a href="/commissions/estado/{{$item->idCommissions}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
+                            <a href="/layoffs/cambiarEstado/{{$item->idLayoffs}}/1" class="btn btn-icons btn-rounded btn-outline-success" title="Activar" style="border-radius:20px"><i
                                 class="fas fa-exchange-alt"></i></a>
 
                             @endif
                         </td>
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -63,12 +64,12 @@
 </script>
 
 <script>
-    function editCommissions(id)
-    {
-        $.get("{{url('commissions')}}" + '/' + id + '/show', (data)=>{
-            $("#idCommission_mdl").val(data.idCommissions);
-            $("#nameComissionMdl").val(data.nameCommission);
-            $('#modal_commissionsEdit').modal();
+    function updateLayoffs(id){
+        $.get("{{ url('layoffs') }}" + '/' + id + '/show', (data)=>{
+            $("#idLayoffs_edit").val(data.idLayoffs);
+            $("#descriptionLayoffsE").val(data.descriptionLayoffs);
+            $("#valueLayoffsE").val(data.valueLayoffs);
         })
+        $('#editLayoffs').modal();
     }
 </script>

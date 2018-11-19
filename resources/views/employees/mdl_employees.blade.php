@@ -1,6 +1,6 @@
 <div class="modal fade" id="modal_employees" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" style="max-width: 694px !important;" role="document">
+    <div class="modal-dialog" style="max-width: 725px !important;" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ver detalle</h5>
@@ -14,8 +14,8 @@
                         <tr>
                             <th>Fecha de nacimiento</th>
                             <th>Número de hijos</th>
-                            <th>Nivel educativo</th>
                             <th>Estado civil</th>
+                            <th>Contrato</th>
                         </tr>
                     </thead>
                     <tbody id="body_table_employees">
