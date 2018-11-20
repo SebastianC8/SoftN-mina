@@ -10,12 +10,11 @@ class Employees extends Model
     protected $primaryKey = 'idemployees';
     public $timestamps = false;
     protected $fillable = [
-        'documentType_id', 'document', 'numberSons',
-        'entryDate', 'birthDate', 'levelEducative',
-        'nameEmployee', 'lastName', 'address',
-        'email', 'Phone', 'layoffs_id',
-        'pensions_id', 'EPS_id', 'holidays_id',
-        'compenstionFound_id', 'areas_id', 'maritalStatus_id',
-        'ARL_id', 'bonus_idBonus'
+        'documentType_id', 'document', 'nameEmployee',
+        'lastName', 'birthDate', 'address',
+        'email', 'Phone', 'numberSons',
+        'entryDate', 'holidays_id',
+        'pensions_id', 'EPS_id',
+        'maritalStatus_id', 'area_id'
     ];
 }

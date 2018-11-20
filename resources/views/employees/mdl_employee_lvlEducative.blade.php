@@ -1,6 +1,6 @@
-<div class="modal fade" id="modal_employees" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modal_employees_level_educative" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" style="max-width: 725px !important;" role="document">
+    <div class="modal-dialog" style="max-width: 856px !important;" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ver detalle</h5>
@@ -12,13 +12,13 @@
                 <table class="table table-responsive">
                     <thead>
                         <tr>
-                            <th>Fecha de nacimiento</th>
-                            <th>Número de hijos</th>
-                            <th>Estado civil</th>
-                            <th>Contrato</th>
+                            <th>Nivel educativo</th>
+                            <th>Profesión</th>
+                            <th>Fecha de inicio</th>
+                            <th>Fecha fin</th>
                         </tr>
                     </thead>
-                    <tbody id="body_table_employees">
+                    <tbody id="tbl_employee_x_lvl">
                     </tbody>
                 </table>
             </div>

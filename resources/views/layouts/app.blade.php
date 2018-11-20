@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('/css/login.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
 
 </head>
 <body>
