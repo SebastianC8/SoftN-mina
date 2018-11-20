@@ -18,7 +18,7 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
-                        <th>Valor</th>
+                        <th>Porcentaje</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>

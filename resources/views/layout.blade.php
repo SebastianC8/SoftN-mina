@@ -359,6 +359,7 @@
                                     <a class="nav-link" href="{{route('deductions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Deducciones</a>
                                 </li>
                                 <li>
+                                <li class="nav-item">                                    
                                     <a class="nav-link" href="{{route('nucleusfamily.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Parentezco</a>
                                 </li>
                             </ul>

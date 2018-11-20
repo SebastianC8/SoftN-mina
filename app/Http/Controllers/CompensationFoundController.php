@@ -13,8 +13,13 @@ class CompensationFoundController extends Controller
     }
 
     public function store(Request $request){
-        $foundCompensation = $request->all();
-        CompensationFound::create($foundCompensation);
+        $foundCompensation =
+        CompensationFound::create([
+                
+            'description'=> $request['description'],
+            'percentage'=>  $request['percentageFound']
+
+        ]);
         swal()->message('Felicidades', 'El fondo de compensación ha sido registrado correctamente.', 'success');
         return redirect()->route('compensationFound.index');
     }
@@ -27,7 +32,8 @@ class CompensationFoundController extends Controller
     public function update(Request $request){
         $compensationFound = CompensationFound::where('idCompensationFound', $request['idCompensationFound'])->
         update([
-            'description' => $request['description_edit']
+            'description' => $request['description_edit'],
+            'percentage'=>  $request['percentageFound_edit']
         ]);
         swal()->message('Felicidades', 'El fondo de compensación ha sido actualizado correctamente.', 'success');
         return redirect()->route('compensationFound.index');

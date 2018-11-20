@@ -20,6 +20,14 @@
                             {!!$errors->first('nameEPS_edit','<span class=error>:message</span>')!!}
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="percentageEPSEdit" name="percentageEPSEdit" value="{{old('percentageEPSEdit')}}"
+                                placeholder="Ingrese el porcentaje de la eps" required>
+                            {!!$errors->first('percentageEPS','<span class=error>:message</span>')!!}
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

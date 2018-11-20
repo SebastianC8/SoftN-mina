@@ -20,6 +20,14 @@
                             {!!$errors->first('description_edit','<span class=error>:message</span>')!!}
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="percentageFound_edit" name="percentageFound_edit" value="{{old('percentageFound_edit')}}"
+                                placeholder="Ingrese el porcentaje del fondo de compensación" required>
+                            {!!$errors->first('percentageFound_edit','<span class=error>:message</span>')!!}
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
