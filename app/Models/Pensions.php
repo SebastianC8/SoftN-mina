@@ -9,5 +9,5 @@ class Pensions extends Model
     protected $table = 'pensions';
     protected $primaryKey = 'idPensions';
     public $timestamps = false;
-    protected $fillable = ['namePensions'];
+    protected $fillable = ['namePensions','percentage'];
 }

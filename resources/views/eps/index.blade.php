@@ -16,6 +16,7 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
+                        <th>Porcentaje</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -24,6 +25,7 @@
                     @foreach ($eps as $item)
                     <tr>
                         <td>{{$item->nameEPS}}</td>
+                        <td>{{$item->percentage}}</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editEPS({{$item->idEPS}})" title="Editar"><i
@@ -64,6 +66,8 @@
         $.get("{{url('EPS')}}" + '/' + id + '/show', (data)=>{
             $("#idEPS_edit").val(data.idEPS);
             $("#nameEPS_edit").val(data.nameEPS);
+            $("#percentageEPSEdit").val(data.percentage);
+            
         })
         $("#modal_eps_edit").modal();
     }

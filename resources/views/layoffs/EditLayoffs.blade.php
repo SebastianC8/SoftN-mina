@@ -9,7 +9,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <form id="form_editLayoffs" action="layoffs_update" method="POST">
+            <form id="form_editLayoffss" action="layoffs_update" method="POST">
                 @csrf
                 <input type="hidden" name="idLayoffs_edit" id="idLayoffs_edit">
                 <div class="form-group row">
@@ -21,9 +21,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="col-sm-3 col-form-label">Valor</label>
+                    <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="valueLayoffsE" name="valueLayoffs" value="{{old('valueLayoffs')}}"
+                        <input type="number" class="form-control" id="valueLayoffsE" name="valueLayoffs" value="{{old('valueLayoffs')}}"
                             placeholder="Ingrese el valor de la cesantía" required>
                         {!!$errors->first('valueLayoffs','<span class=error>:message</span>')!!}
                     </div>

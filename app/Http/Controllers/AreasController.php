@@ -6,7 +6,7 @@ use DB;
 use App\Models\Area;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-// use App\Http\Request\CreateAreasRequest;
+use App\Http\Request\CreateAreasRequest;
 use Illuminate\Database\Eloquent\Model;
 use Datatables;
 

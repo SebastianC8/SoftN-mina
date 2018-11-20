@@ -19,6 +19,14 @@
                             {!!$errors->first('namePensions','<span class=error>:message</span>')!!}
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="percentagePension" name="percentagePension" value="{{old('percentagePension')}}"
+                                placeholder="Ingrese el porcentaje de la pensión." required>
+                            {!!$errors->first('percentagePension','<span class=error>:message</span>')!!}
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

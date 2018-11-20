@@ -9,5 +9,5 @@ class CompensationFound extends Model
     protected $table = 'compensationfound';
     protected $primaryKey = 'idCompensationFound';
     public $timestamps = false;
-    protected $fillable = ['description'];
+    protected $fillable = ['description','percentage'];
 }

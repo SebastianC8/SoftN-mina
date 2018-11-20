@@ -22,9 +22,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Valor</label>
+                        <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="valueLayoffs" name="valueLayoffs" value="{{old('valueLayoffs')}}"
+                            <input type="number" class="form-control" id="valueLayoffs" name="valueLayoffs" value="{{old('valueLayoffs')}}"
                                 placeholder="Ingrese el valor de la cesantía" required>
                             {!!$errors->first('valueLayoffs','<span class=error>:message</span>')!!}
                         </div>

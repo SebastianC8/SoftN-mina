@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Holidays;
 use Illuminate\Http\Request;
+use App\Http\Request\CreateHolidaysRequest;
+
 
 class HolidaysController extends Controller
 {

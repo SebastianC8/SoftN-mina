@@ -15,6 +15,7 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
+                        <th>Porcentaje</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -22,6 +23,7 @@
                     @foreach ($compensationFound as $item)
                     <tr>
                         <td>{{$item->description}}</td>
+                        <td>{{$item->percentage}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="edit_compensationFound({{$item->idCompensationFound}})" title="Editar"><i
                             class="fas fa-edit"></i></button>
@@ -53,6 +55,7 @@
         $.get("{{url('compensationFound')}}" + '/' + id + '/show', (data)=>{
             $("#idCompensationFound").val(data.idCompensationFound);
             $("#description_edit").val(data.description);
+            $("#percentageFound_edit").val(data.percentage);
         })
         $("#modal_compensationFound_edit").modal();
     }
