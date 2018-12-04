@@ -14350,6 +14350,9 @@ pre {
     width: 100%;
     min-width: 100%; }
 
+.myCard {
+    width: 100%; }
+
 @media (min-width: 576px) {
   .border-right-sm {
     border-right: 1px solid #f2f2f2; } }

@@ -262,3 +262,16 @@ Route::get('relationships/{id}/show', 'RelationshipsController@show');
 Route::post('relationships_update','RelationshipsController@update');
 
 Route::post('levelEducative/store', ['as' => 'level_Educative.store', 'uses' => 'Employees_Has_LevelEducative_Controller@store']);
+
+//Ruta para la vista de nómina
+Route::get('payroll', ['as' => 'payroll.index', 'uses' => 'PayrollController@index']);
+//Ruta para guardar la nómina
+Route::post('payroll', ['as' => 'payroll.store', 'uses' => 'PayrollController@store']);
+//Ruta para consultar el valor de un tipo de adición.
+Route::get('payroll/{id}/get_value_addition', 'PayrollController@get_value_addition');
+//Ruta para consultar el valor de un tipo de deducción.
+Route::get('payroll/{id}/get_value_deduction', 'PayrollController@get_value_deduction');
+//Ruta para consultar el valor de una hora extra.
+Route::get('payroll/{id}/get_value_overtime', 'PayrollController@get_value_overtime');
+//Ruta para consultar el salario de un empleado.
+Route::get('payroll/{document}/get_salary', 'PayrollController@get_salary');
