@@ -333,7 +333,7 @@
                                     <a class="nav-link" href="<?php echo e(route('deductions.index')); ?>"><i class="fas fa-plus-circle"></i>&nbsp; Deducciones</a>
                                 </li>
                                 <li>
-                                <li class="nav-item">                                    
+                                <li class="nav-item">
                                     <a class="nav-link" href="<?php echo e(route('nucleusfamily.index')); ?>"><i class="fas fa-plus-circle"></i>&nbsp; Parentezco</a>
                                 </li>
                             </ul>
@@ -382,7 +382,7 @@
     <script src="<?php echo e(asset('/js/dataTable.min.js')); ?>">
     <script src="<?php echo e(asset('/js/jquery.validate.min.js')); ?>"></script>
     <script src="<?php echo e(asset('/js/validations.js')); ?>"></script>
-
+    <script src="<?php echo e(asset('/js/formatDecimal.js')); ?>"></script>
 
     <script>
         $(document).ready( function () {

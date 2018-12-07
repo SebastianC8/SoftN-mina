@@ -359,7 +359,7 @@
                                     <a class="nav-link" href="{{route('deductions.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Deducciones</a>
                                 </li>
                                 <li>
-                                <li class="nav-item">                                    
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{route('nucleusfamily.index')}}"><i class="fas fa-plus-circle"></i>&nbsp; Parentezco</a>
                                 </li>
                             </ul>
@@ -421,7 +421,7 @@
     <script src="{{asset('/js/dataTable.min.js')}}">
     <script src="{{asset('/js/jquery.validate.min.js')}}"></script>
     <script src="{{asset('/js/validations.js')}}"></script>
-
+    <script src="{{asset('/js/formatDecimal.js')}}"></script>
 
     <script>
         $(document).ready( function () {
