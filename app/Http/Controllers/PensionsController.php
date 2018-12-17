@@ -13,13 +13,10 @@ class PensionsController extends Controller
     }
 
     public function store(Request $request){
-        // $pensions = $request->all();
-        // Pensions::create($pensions);
-
         $pension= Pensions::create([
-
-            'namePensions'=>$request['namePensions'],
-            'percentage'  =>$request['percentagePension']
+            'namePensions'=> $request['namePensions'],
+            'percentage_pension'  => $request['percentagePension'],
+            'percentage_employer' => $request['percentage_employer']
         ]);
         swal()->message('Felicidades', 'La pensión fue registrada correctamente.', 'success');
         return redirect()->route('pensions.index');
@@ -34,8 +31,8 @@ class PensionsController extends Controller
         $pensions = Pensions::where('idPensions', $request['idPensions'])->
         update([
             'namePensions' => $request['namePensions_edit'],
-            'percentage'  =>$request['percentagePension_Edit']
-
+            'percentage_pension'  =>$request['percentagePension_Edit'],
+            'percentage_employer' => $request['percentage_employer_edit']
         ]);
         swal()->message('Felicidades', 'La pensión ha sido actualizada correctamente.','success');
         return redirect()->route('pensions.index');

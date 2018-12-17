@@ -34,9 +34,8 @@ class ARLController extends Controller
         $arl = ARL::where('idARL', $request['idARL'])->
         update([
             'nameARL' => $request['nameARL_edit'],
-             'value_arl'=>$request['percentageARL_EDIT']
-            ]);
-        // dd($arl);
+            'value_arl' => $request['value_arl_edit']
+        ]);
         swal()->message('Felicidades', 'La ARL ha sido actualizada correctamente.', 'success');
         return redirect()->route('arl.index');
     }

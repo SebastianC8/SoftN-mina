@@ -266,3 +266,18 @@ Route::post('levelEducative/store', ['as' => 'level_Educative.store', 'uses' => 
 Route::get('HolidaysController/{id}/show', 'HolidaysController@traerFechaIngreso');
 //Ruta para guardas las vacaciones con documento
 Route::post('diasfestivos', ['as' => 'diasfestivos.vacaciones', 'uses' => 'HolidaysController@guardarVaciones']);
+
+//Ruta para la vista de nómina
+Route::get('payroll', ['as' => 'payroll.index', 'uses' => 'PayrollController@index']);
+//Ruta para guardar la nómina
+Route::post('payroll', ['as' => 'payroll.store', 'uses' => 'PayrollController@store']);
+//Ruta para consultar el valor de un tipo de adición.
+Route::get('payroll/{id}/get_value_addition', 'PayrollController@get_value_addition');
+//Ruta para consultar el valor de un tipo de deducción.
+Route::get('payroll/{id}/get_value_deduction', 'PayrollController@get_value_deduction');
+//Ruta para consultar el valor de una hora extra.
+Route::get('payroll/{id}/get_value_overtime', 'PayrollController@get_value_overtime');
+//Ruta para consultar el salario de un empleado.
+Route::get('payroll/{document}/get_salary', 'PayrollController@get_salary');
+//Ruta para actualizar los días trabajados de un empleado.
+Route::post('days_worked_update', 'PayrollController@daysWorked_update');

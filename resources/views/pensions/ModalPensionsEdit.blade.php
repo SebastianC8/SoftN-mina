@@ -21,11 +21,19 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
+                        <label for="" class="col-sm-3 col-form-label">% del empleado</label>
                         <div class="col-sm-9">
                             <input type="number" class="form-control" id="percentagePension_Edit" name="percentagePension_Edit" value="{{old('percentagePension_Edit')}}"
                                 placeholder="Ingrese el porcentaje de la pensión." required>
                             {!!$errors->first('percentagePension_Edit','<span class=error>:message</span>')!!}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">% del empleador</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="percentage_employer_edit" name="percentage_employer_edit" value="{{old('percentage_employer_edit')}}"
+                                placeholder="Ingrese el porcentaje de la pensión." required>
+                            {!!$errors->first('percentage_employer_edit','<span class=error>:message</span>')!!}
                         </div>
                     </div>
             </div>

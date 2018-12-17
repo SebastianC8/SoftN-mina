@@ -66,7 +66,6 @@
 <script>
     function editOvertimes(id){
         $.get("{{url('overtimes')}}" + '/' + id + '/show', (data)=>{
-            console.log(data);
             $("#idOvertime").val(data.idOvertime);
             $("#descriptionOvertime_edit").val(data.descriptionOvertime);
             $("#percent_edit").val(data.value);

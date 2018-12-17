@@ -18,6 +18,6 @@ class Employees_Has_LevelEducative_Controller extends Controller
             ]);
         }
         swal()->message('Felicidades', 'Los niveles educativos se le han asignado correctamente al empleado.', 'success');
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.level_educative');
     }
 }

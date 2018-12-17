@@ -82,7 +82,7 @@
     function getEmployee(id){
         $.get("{{url('employees')}}" + '/' + id + '/show', (data)=>{
             $("#body_table_employees").empty();
-            $("#body_table_employees").append("<tr><td>"+data.entryDate+"</td><td>"+data.numberSons+"</td><td>"+data.nameMaritalStatus+"</td><td>"+data.descriptionContract+"</td><tr>");
+            $("#body_table_employees").append("<tr><td>"+data.numberSons+"</td><td>"+data.nameMaritalStatus+"</td><td>"+data.descriptionContract+"</td><td>"+data.nameJob+"</td><td>"+data.ratesValue+"</td><tr>");
         })
         $("#modal_employees").modal();
     }
@@ -93,7 +93,6 @@
 <script>
     function editEmployee(val){
         $.get("{{url('employees')}}" + '/' + val + '/show', (data)=>{
-            console.log(data);
         })
     }
 </script>

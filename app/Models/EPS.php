@@ -9,6 +9,5 @@ class Eps extends Model
     protected $table = "eps";
     protected $primaryKey = "idEPS";
     public $timestamps = false;
-    protected $fillable = ['nameEPS','percentage'];
+    protected $fillable = ['nameEPS','percentage', 'eps_employeer'];
 }
-            

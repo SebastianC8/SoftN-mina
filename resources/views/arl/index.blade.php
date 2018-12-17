@@ -16,6 +16,8 @@
                     <tr>
                         <th>Descripción</th>
                         <th>Porcentaje</th>
+                        <th>Valor de ARL</th>
+                        <th>Año de vigencia</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -25,6 +27,7 @@
                     <tr>
                         <td>{{$item->nameARL}}</td>
                         <td>{{$item->value_arl}}</td>
+                        <td>{{substr($item->year_valid, 0, 4)}}</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="edit_arl({{$item->idARL}})" title="Editar"><i
@@ -67,7 +70,11 @@
         $.get("{{url('arl')}}" + '/' + id + '/show', (data)=>{
             $("#idARL").val(data.idARL);
             $("#nameARL_edit").val(data.nameARL);
+<<<<<<< HEAD
             $("#percentageARL_EDIT").val(data.value_arl);
+=======
+            $("#value_arl_edit").val(data.value_arl);
+>>>>>>> master
         })
         $("#modal_arl_edit").modal();
     }

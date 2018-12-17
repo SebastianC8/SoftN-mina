@@ -22,8 +22,18 @@
                     </div>
                     <div class="form-group row"> 
                         <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">% del empleado</label>
                         <div class="col-sm-9">
                             <input type="number" class="form-control" id="percentageEPSEdit" name="percentageEPSEdit" value="{{old('percentageEPSEdit')}}"
+                                placeholder="Ingrese el porcentaje de la eps" required>
+                            {!!$errors->first('percentageEPS','<span class=error>:message</span>')!!}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">% del empleador</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="percentage_employeer_edit" name="percentage_employeer_edit" value="{{old('percentage_employeer_edit')}}"
                                 placeholder="Ingrese el porcentaje de la eps" required>
                             {!!$errors->first('percentageEPS','<span class=error>:message</span>')!!}
                         </div>

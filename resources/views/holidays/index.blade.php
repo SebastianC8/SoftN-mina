@@ -1,4 +1,4 @@
-@extends('layout')
+ @extends('layout')
 
 @section('contenido')
 @include('holidays.mdl_holidays')
@@ -156,6 +156,11 @@
             new Date(`${fechas[2]}/${fechas[1]}/${fechas[0]}`).getTime()
             )+(86400000*15));
         document.getElementById("fechaFinVacaciones").value=parseo(fechas.toLocaleDateString());
+        // var month = ("0" + (getDate.getMonth() + 2)).slice(-2);
+        getDate.setDate(getDate.getDate() + days);
+
+        var formatDate = (getDate.getFullYear()) + '/' + (getDate.getMonth() + 1) +  '/' + getDate.getDate();
+        $("#dateEnd").val(formatDate);
     }
 
 </script>

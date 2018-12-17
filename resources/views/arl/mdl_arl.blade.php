@@ -25,6 +25,11 @@
                             <input type="number" class="form-control" id="percentagearl" name="percentagearl" value="{{old('percentageARL')}}"
                                 placeholder="Ingrese el porcentaje de la ARL" required>
                             {!!$errors->first('percentagearl','<span class=error>:message</span>')!!}
+                        <label for="" class="col-sm-3 col-form-label">Valor </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="value_arl" name="value_arl" value="{{old('value_arl')}}"
+                                placeholder="Ingrese el valor de la ARL" required>
+                            {!!$errors->first('value_arl','<span class=error>:message</span>')!!}
                         </div>
                     </div>
             </div>
