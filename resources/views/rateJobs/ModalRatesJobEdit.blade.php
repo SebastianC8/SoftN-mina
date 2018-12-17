@@ -6,10 +6,10 @@
                 <h5 class="modal-title" id="exampleModalLabel">Editar cargos</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button> 
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="rateJobs_update" method="POST">
+                <form id="modal_ratesJob_editt" action="rateJobs_update" method="POST">
                     @csrf
                     <div class="form-group row">
                         <input type="hidden" name="idRatesJob" id="idRatesJob">
@@ -20,7 +20,7 @@
                             {!!$errors->first('nameJob_edit','<span class=error>:message</span>')!!}
                         </div>
                         <br><br>
-                        <label for="" class="col-sm-3 col-form-label">Valor</label>
+                        <label for="" class="col-sm-3 col-form-label">Salario</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="ratesValue_edit" name="ratesValue_edit" value="{{old('ratesValue_edit')}}"
                                 placeholder="Ingrese el salario del cargo" required>

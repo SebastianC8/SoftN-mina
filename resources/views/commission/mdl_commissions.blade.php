@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="" action="{{route('commissions.store')}}" method="POST">
+                <form id="modal_commissionss" action="{{route('commissions.store')}}" method="POST">
                     @csrf
                     <input type="hidden" name="txt_idCommissions" id="txt_idCommissions">
                     <div class="form-group row">

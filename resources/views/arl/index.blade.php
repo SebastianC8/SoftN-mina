@@ -15,6 +15,7 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
+                        <th>Porcentaje</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -23,6 +24,7 @@
                     @foreach ($arl as $item)
                     <tr>
                         <td>{{$item->nameARL}}</td>
+                        <td>{{$item->value_arl}}</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="edit_arl({{$item->idARL}})" title="Editar"><i
@@ -65,6 +67,7 @@
         $.get("{{url('arl')}}" + '/' + id + '/show', (data)=>{
             $("#idARL").val(data.idARL);
             $("#nameARL_edit").val(data.nameARL);
+            $("#percentageARL_EDIT").val(data.value_arl);
         })
         $("#modal_arl_edit").modal();
     }

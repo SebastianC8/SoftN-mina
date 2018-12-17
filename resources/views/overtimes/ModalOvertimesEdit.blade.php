@@ -2,14 +2,14 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header"> 
                 <h5 class="modal-title" id="exampleModalLabel">Editar horas extras</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="overtimes_update" method="POST">
+                <form id="modal_overtimes_editt" action="overtimes_update" method="POST">
                     @csrf
                     <div class="form-group row">
                         <input type="hidden" name="idOvertime" id="idOvertime">

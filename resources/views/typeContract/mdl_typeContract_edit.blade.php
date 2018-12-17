@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="typeContract_update" method="POST">
+                <form id="modal_typeContract_editt" action="typeContract_update" method="POST">
                     @csrf
                     <div class="form-group row">
                         <input type="hidden" name="idtypeContract" id="idtypeContract">

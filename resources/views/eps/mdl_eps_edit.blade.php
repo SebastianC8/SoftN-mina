@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="" action="EPS_update" method="POST">
+                <form id="modal_eps_editt" action="EPS_update" method="POST">
                     @csrf
                     <input type="hidden" name="idEPS_edit" id="idEPS_edit">
                     <div class="form-group row">
@@ -20,10 +20,10 @@
                             {!!$errors->first('nameEPS_edit','<span class=error>:message</span>')!!}
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row"> 
                         <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="percentageEPSEdit" name="percentageEPSEdit" value="{{old('percentageEPSEdit')}}"
+                            <input type="number" class="form-control" id="percentageEPSEdit" name="percentageEPSEdit" value="{{old('percentageEPSEdit')}}"
                                 placeholder="Ingrese el porcentaje de la eps" required>
                             {!!$errors->first('percentageEPS','<span class=error>:message</span>')!!}
                         </div>

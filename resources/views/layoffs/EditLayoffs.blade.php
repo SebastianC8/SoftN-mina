@@ -1,7 +1,7 @@
 
 <div class="modal fade" id="editLayoffs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content"> 
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Editar cesantías</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -23,9 +23,9 @@
                 <div class="form-group row">
                     <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="valueLayoffsE" name="valueLayoffs" value="{{old('valueLayoffs')}}"
+                        <input type="number" class="form-control" id="valueLayoffsE" name="valueLayoffsE" value="{{old('valueLayoffsE')}}"
                             placeholder="Ingrese el valor de la cesantía" required>
-                        {!!$errors->first('valueLayoffs','<span class=error>:message</span>')!!}
+                        {!!$errors->first('valueLayoffsE','<span class=error>:message</span>')!!}
                     </div>
                 </div>
         </div>

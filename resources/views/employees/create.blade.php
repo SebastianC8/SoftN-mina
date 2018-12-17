@@ -27,8 +27,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">N° de documento <span style="color:red">*</span></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="document" name="document" placeholder="Ingrese el número de identificación"
-                                    value="{{old('document')}}" />
+                                <input type="text" class="form-control" id="document" name="document" placeholder="Ingrese el número de identificación" value="{{old('document')}}" />
                                 {!!$errors->first('document','<span class=error>:message</span>')!!}
                             </div>
                         </div>

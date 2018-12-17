@@ -6,7 +6,7 @@
     <div class="card" style="border-radius:20px">
         <div class="card-body">
             <button id="" class="btn btn-success btn-fw" onclick="addTypeContracts()" title="Añadir un tipo de contrato"> Añadir tipo de contrato <i class="fas fa-plus-circle"></i></button><br><br>
-            @if(session()->has('alert'))
+            @if(session()->has('alert')) 
             @else
             <h3>{{session('alert')}}</h3>
             <h4 class="card-title">Tipos de contrato </h4>

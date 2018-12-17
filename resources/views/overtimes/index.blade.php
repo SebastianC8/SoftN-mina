@@ -25,7 +25,7 @@
                     @foreach ($overtimes as $item)
                     <tr>
                         <td>{{$item->descriptionOvertime}}</td>
-                        <td>{{$item->percent}}</td>
+                        <td>{{$item->value}}</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editOvertimes({{$item->idOvertime}})" title="Editar"><i
@@ -69,7 +69,7 @@
             console.log(data);
             $("#idOvertime").val(data.idOvertime);
             $("#descriptionOvertime_edit").val(data.descriptionOvertime);
-            $("#percent_edit").val(data.percent);
+            $("#percent_edit").val(data.value);
         })
         $("#modal_overtimes_edit").modal();
     }

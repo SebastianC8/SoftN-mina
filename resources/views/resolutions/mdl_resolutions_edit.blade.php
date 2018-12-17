@@ -5,11 +5,11 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Editar resoluciones</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span> 
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="resolutions_update" method="POST">
+                <form id="modal_resolutions_editt" action="resolutions_update" method="POST">
                     @csrf
                     <div class="form-group row">
                         <input type="hidden" name="idResolution" id="idResolution">

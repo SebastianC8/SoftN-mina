@@ -9,5 +9,5 @@ class Holidays extends Model
     protected $table = 'holidays';
     protected $primaryKey = 'idHolidays';
     public $timestamps = false;
-    protected $fillable = ['descriptionHolidays', 'dateStart', 'dateEnd'];
+    protected $fillable = ['descriptionHolidays', 'dateStart', 'dateEnd','idEmployee'];
 }

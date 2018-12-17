@@ -458,3 +458,1097 @@ $('#form_register_contract_employees').validate({
     $(element).addClass('is-valid').removeClass('is-invalid');
     }
     });
+
+
+    //Validaciones modals de GUARDAER ARL
+    $('#modal_arlL').validate({
+        rules: { 
+            nameARL: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            percentagearl: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            nameARL: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            percentagearl: {
+                required: "Por favor, ingrese el valor de la ARL."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+         //Validaciones modals de EDITAR ARL
+    $('#modal_arl_edits').validate({
+        rules: { 
+            nameARL_edit: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            percentageARL_EDIT: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            nameARL_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            percentageARL_EDIT: {
+                required: "Por favor, ingrese el valor de la ARL."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        
+         //Validaciones agregar comisiones modals
+    $('#modal_commissionss').validate({
+        rules: { 
+            nameCommission: {
+                required: true,
+                maxlength: 45                                                
+            }
+        },
+        messages: { 
+            nameCommission: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+              
+     //Validaciones editar comisiones modals
+    $('#modal_commissionsEdits').validate({
+        rules: { 
+            nameComissionMdl: {
+                required: true,
+                maxlength: 45                                                
+            }
+        },
+        messages: { 
+            nameComissionMdl: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+        
+     //Validaciones modals de GUARDAR EPS
+    $('#modal_epss').validate({
+        rules: { 
+            nameEPS: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            percentageEPS: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            nameEPS: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            percentageEPS: {
+                required: "Por favor, ingrese el valor de la EPS."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+  //Validaciones modals de EDITAR EPS
+  $('#modal_eps_editt').validate({
+    rules: { 
+        nameEPS_edit: {
+            required: true,
+            maxlength: 45                
+            
+            
+        },
+        percentageEPSEdit: {
+            required: true,
+            number:true
+            
+        }
+    },
+    messages: { 
+        nameEPS_edit: {
+            required: "Por favor, ingrese la descripción.",
+            maxlength: "No puede ingresar más de 45 carácteres.",
+            
+            
+        },
+        percentageEPSEdit: {
+            required: "Por favor, ingrese el valor de la EPS."  ,
+            number:   "por favor ingrese solo números",
+        }
+    },
+    errorElement: 'em',
+    errorPlacement: function errorPlacement(error, element) {
+    error.addClass('invalid-feedback');
+    
+    if (element.prop('type') === 'checkbox') {
+      error.insertAfter(element.parent('label'));
+    } else {
+      error.insertAfter(element);
+    }
+    },
+    // eslint-disable-next-line object-shorthand
+    highlight: function highlight(element) {
+    $(element).addClass('is-invalid').removeClass('is-valid');
+    },
+    // eslint-disable-next-line object-shorthand
+    unhighlight: function unhighlight(element) {
+    $(element).addClass('is-valid').removeClass('is-invalid');
+    }
+    });
+
+
+     //Validaciones agregar estado civil modals
+     $('#modal_maritalStatuss').validate({
+        rules: { 
+            nameMaritalStatus: {
+                required: true,
+                maxlength: 45                                                
+            }
+        },
+        messages: { 
+            nameMaritalStatus: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');     
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+        
+      //Validaciones editar estado civil modals
+     $('#modal_maritalStatus_editt').validate({
+        rules: { 
+            nameMaritalStatus_edit: {
+                required: true,
+                maxlength: 45                                                
+            }
+        },
+        messages: { 
+            nameMaritalStatus_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');     
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+
+     //Validaciones modals de GUARDAR horasextra
+    $('#modal_overtimess').validate({
+        rules: { 
+            descriptionOvertime: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            percent: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            descriptionOvertime: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            percent: {
+                required: "Por favor, ingrese el valor de la hora extra."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+    //Validaciones modals de EDITAR horasextra
+    $('#modal_overtimes_editt').validate({
+        rules: { 
+            descriptionOvertime_edit: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            percent_edit: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            descriptionOvertime_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            percent_edit: {
+                required: "Por favor, ingrese el valor de la hora extra."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+//Validaciones modals de Agregar pensiones
+$('#modal_pensionss').validate({
+    rules: { 
+        namePensions: {
+            required: true,
+            maxlength: 45                
+            
+            
+        },
+        percentagePension: {
+            required: true,
+            number:true
+            
+        }
+    },
+    messages: { 
+        namePensions: {
+            required: "Por favor, ingrese la descripción.",
+            maxlength: "No puede ingresar más de 45 carácteres.",
+            
+            
+        },
+        percentagePension: {
+            required: "Por favor, ingrese el valor de la pensión."  ,
+            number:   "por favor ingrese solo números",
+        }
+    },
+    errorElement: 'em',
+    errorPlacement: function errorPlacement(error, element) {
+    error.addClass('invalid-feedback');
+    
+    if (element.prop('type') === 'checkbox') {
+      error.insertAfter(element.parent('label'));
+    } else {
+      error.insertAfter(element);
+    }
+    },
+    // eslint-disable-next-line object-shorthand
+    highlight: function highlight(element) {
+    $(element).addClass('is-invalid').removeClass('is-valid');
+    },
+    // eslint-disable-next-line object-shorthand
+    unhighlight: function unhighlight(element) {
+    $(element).addClass('is-valid').removeClass('is-invalid');
+    }
+    });
+
+    //Validaciones modals de editar pensiones
+$('#modal_pensionss').validate({
+    rules: { 
+        namePensions: {
+            required: true,
+            maxlength: 45                
+            
+            
+        },
+        percentagePension: {
+            required: true,
+            number:true
+            
+        }
+    },
+    messages: { 
+        namePensions: {
+            required: "Por favor, ingrese la descripción.",
+            maxlength: "No puede ingresar más de 45 carácteres.",
+            
+            
+        },
+        percentagePension: {
+            required: "Por favor, ingrese el valor de la pensión."  ,
+            number:   "por favor ingrese solo números",
+        }
+    },
+    errorElement: 'em',
+    errorPlacement: function errorPlacement(error, element) {
+    error.addClass('invalid-feedback');
+    
+    if (element.prop('type') === 'checkbox') {
+      error.insertAfter(element.parent('label'));
+    } else {
+      error.insertAfter(element);
+    }
+    },
+    // eslint-disable-next-line object-shorthand
+    highlight: function highlight(element) {
+    $(element).addClass('is-invalid').removeClass('is-valid');
+    },
+    // eslint-disable-next-line object-shorthand
+    unhighlight: function unhighlight(element) {
+    $(element).addClass('is-valid').removeClass('is-invalid');
+    }
+    });
+
+
+    //Validaciones modals de editar pensiones
+    $('#modal_pensions_editt').validate({
+        rules: { 
+            namePensions_edit: {
+                    required: true,
+                    maxlength: 45                
+            
+            
+        },
+        percentagePension_Edit: {
+            required: true,
+            number:true
+            
+        }
+    },
+    messages: { 
+             namePensions_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+            
+            
+        },
+        percentagePension_Edit: {
+            required: "Por favor, ingrese el valor de la pensión."  ,
+            number:   "por favor ingrese solo números",
+        }
+    },
+    errorElement: 'em',
+    errorPlacement: function errorPlacement(error, element) {
+    error.addClass('invalid-feedback');
+    
+    if (element.prop('type') === 'checkbox') {
+      error.insertAfter(element.parent('label'));
+    } else {
+      error.insertAfter(element);
+    }
+    },
+    // eslint-disable-next-line object-shorthand
+    highlight: function highlight(element) {
+    $(element).addClass('is-invalid').removeClass('is-valid');
+    },
+    // eslint-disable-next-line object-shorthand
+    unhighlight: function unhighlight(element) {
+    $(element).addClass('is-valid').removeClass('is-invalid');
+    }
+    });
+
+    //Validaciones agregar profesion modals
+    $('#modal_professionss').validate({
+        rules: { 
+            nameProfession: {
+                required: true,
+                maxlength: 45                                                
+            }
+        },
+        messages: { 
+            nameProfession: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');     
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        //Validaciones editar profesion modals
+    $('#modal_professions_editt').validate({
+        rules: { 
+            nameProfession_edit: {
+                required: true,
+                maxlength: 45                                                
+            }
+        },
+        messages: { 
+            nameProfession_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');     
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+    
+    //Validaciones modals de GUARDAER cesantias
+    $('#addLayoffstt').validate({
+        rules: { 
+            descriptionLayoffs: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            valueLayoffs: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            descriptionLayoffs: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            valueLayoffs: {
+                required: "Por favor, ingrese el valor de la cesantía."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        //Validaciones modals de editar cesantías
+    $('#form_editLayoffss').validate({
+        rules: { 
+            descriptionLayoffsE: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            valueLayoffsE: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            descriptionLayoffsE: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            valueLayoffsE: {
+                required: "Por favor, ingrese el valor de la cesantía."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+     //Validaciones modals de agregar cargo
+    $('#modal_ratesJobb').validate({
+        rules: { 
+            nameJob: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            ratesValue: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            nameJob: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            ratesValue: {
+                required: "Por favor, ingrese el salario del cargo."  ,
+                number:   "por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        //Validaciones modals de editar cargo
+    $('#modal_ratesJob_editt').validate({
+        rules: { 
+            nameJob_edit: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            ratesValue_edit: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            nameJob_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            ratesValue_edit: {
+                required: "Por favor, ingrese el salario del cargo."  ,
+                number:   "Por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+    //Validaciones modals de agregar resolución
+    $('#modal_resolutionss').validate({
+        rules: { 
+            nameResolution: {
+                required: true,
+                maxlength: 45                
+                
+                
+            }
+        },
+        messages: { 
+            nameResolution: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        //Validaciones modals de editar resolución
+    $('#modal_resolutions_editt').validate({
+        rules: { 
+            nameResolution_edit: {
+                required: true,
+                maxlength: 45                
+                
+                
+            }
+        },
+        messages: { 
+            nameResolution_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        //Validaciones modals de agregar tipo de contrato
+    $('#modal_typeContractt').validate({
+        rules: { 
+            descriptionType: {
+                required: true,
+                maxlength: 45                
+                
+                
+            }
+        },
+        messages: { 
+            descriptionType: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        //Validaciones modals de editar tipo de contrato
+    $('#modal_typeContract_editt').validate({
+        rules: { 
+            descriptionType_edit: {
+                required: true,
+                maxlength: 45                
+                
+                
+            }
+        },
+        messages: { 
+            descriptionType_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        
+    //Validaciones modals de agregar fonde de compensación cargo
+    $('#modal_compensationFoundd').validate({
+        rules: { 
+            description: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            percentageFound: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            description: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            percentageFound: {
+                required: "Por favor, ingrese el valor del fondo de compensación."  ,
+                number:   "Por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+
+
+        //Validaciones modals de editar fondo de compensación cargo
+    $('#modal_compensationFound_editt').validate({
+        rules: { 
+            description_edit: {
+                required: true,
+                maxlength: 45                
+                
+                
+            },
+            percentageFound_edit: {
+                required: true,
+                number:true
+                
+            }
+        },
+        messages: { 
+            description_edit: {
+                required: "Por favor, ingrese la descripción.",
+                maxlength: "No puede ingresar más de 45 carácteres.",
+                
+                
+            },
+            percentageFound_edit: {
+                required: "Por favor, ingrese el valor del fondo de compensación."  ,
+                number:   "Por favor ingrese solo números",
+            }
+        },
+        errorElement: 'em',
+        errorPlacement: function errorPlacement(error, element) {
+        error.addClass('invalid-feedback');
+        
+        if (element.prop('type') === 'checkbox') {
+          error.insertAfter(element.parent('label'));
+        } else {
+          error.insertAfter(element);
+        }
+        },
+        // eslint-disable-next-line object-shorthand
+        highlight: function highlight(element) {
+        $(element).addClass('is-invalid').removeClass('is-valid');
+        },
+        // eslint-disable-next-line object-shorthand
+        unhighlight: function unhighlight(element) {
+        $(element).addClass('is-valid').removeClass('is-invalid');
+        }
+        });
+

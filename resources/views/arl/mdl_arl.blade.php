@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="{{route('arl.store')}}" method="POST">
+                <form id="modal_arlL" action="{{route('arl.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Descripción</label>
@@ -17,6 +17,14 @@
                             <input type="text" class="form-control" id="nameARL" name="nameARL" value="{{old('nameARL')}}"
                                 placeholder="Ingrese la descripción de la ARL" required>
                             {!!$errors->first('nameARL','<span class=error>:message</span>')!!}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="percentagearl" name="percentagearl" value="{{old('percentageARL')}}"
+                                placeholder="Ingrese el porcentaje de la ARL" required>
+                            {!!$errors->first('percentagearl','<span class=error>:message</span>')!!}
                         </div>
                     </div>
             </div>

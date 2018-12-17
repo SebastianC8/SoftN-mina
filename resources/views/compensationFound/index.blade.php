@@ -12,7 +12,7 @@
             <h4 class="card-title">Fondo de compensación </h4>
             <h4></h4>
             <table class="table table-bordered" id="tableBonus">
-                <thead>
+                <thead> 
                     <tr>
                         <th>Descripción</th>
                         <th>Porcentaje</th>

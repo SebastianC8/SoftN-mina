@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="{{route('overtimes.store')}}" method="POST">
+                <form id="modal_overtimess" action="{{route('overtimes.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Descripción</label>
@@ -28,7 +28,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> 
                 <button type="submit" class="btn btn-success mr-2">Guardar</button>
                 </form>
             </div>

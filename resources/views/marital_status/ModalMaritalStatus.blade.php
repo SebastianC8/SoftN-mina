@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="{{route('maritalStatus.store')}}" method="POST">
+                <form id="modal_maritalStatuss" action="{{route('maritalStatus.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Descripción</label>
@@ -17,7 +17,7 @@
                             <input type="text" class="form-control" id="nameMaritalStatus" name="nameMaritalStatus" value="{{old('nameMaritalStatus')}}"
                                 placeholder="Ingrese la descripción del estado civil" required>
                             {!!$errors->first('nameMaritalStatus','<span class=error>:message</span>')!!}
-                        </div>
+                        </div> 
                     </div>
             </div>
             <div class="modal-footer">

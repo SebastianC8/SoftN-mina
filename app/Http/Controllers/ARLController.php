@@ -13,8 +13,13 @@ class ARLController extends Controller
     }
 
     public function store(Request $request){
-        $arl = $request->all();
-        ARL::create($arl);
+        // $arl = $request->all();
+        ARL::create([
+
+            'nameARL' => $request['nameARL'],
+            'value_arl'=> $request['percentagearl']
+            
+        ]);
         swal()->message('Felicidades', 'La ARL se registró correctamente.','success');
         return redirect()->route('arl.index');
     }
@@ -28,8 +33,9 @@ class ARLController extends Controller
     {
         $arl = ARL::where('idARL', $request['idARL'])->
         update([
-            'nameARL' => $request['nameARL_edit']
-        ]);
+            'nameARL' => $request['nameARL_edit'],
+             'value_arl'=>$request['percentageARL_EDIT']
+            ]);
         // dd($arl);
         swal()->message('Felicidades', 'La ARL ha sido actualizada correctamente.', 'success');
         return redirect()->route('arl.index');

@@ -6,10 +6,10 @@
                 <h5 class="modal-title" id="exampleModalLabel">Editar profesiones</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button> 
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="professions_update" method="POST">
+                <form id="modal_professions_editt" action="professions_update" method="POST">
                     @csrf
                     <div class="form-group row">
                         <input type="hidden" name="idProfession_edit" id="idProfession_edit">

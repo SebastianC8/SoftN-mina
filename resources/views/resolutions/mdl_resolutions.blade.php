@@ -9,14 +9,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="{{route('resolutions.store')}}" method="POST">
+                <form id="modal_resolutionss" action="{{route('resolutions.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Descripción</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="nameResolution" name="nameResolution" value="{{old('nameResolution')}}"
                                 placeholder="Breve descripción de la resolución" required>
-                            {!!$errors->first('nameResolution','<span class=error>:message</span>')!!}
+                            {!!$errors->first('nameResolution','<span class=error>:message</span>')!!} 
                         </div>
                     </div>
             </div>

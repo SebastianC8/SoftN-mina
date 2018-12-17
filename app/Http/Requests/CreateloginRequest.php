@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateHolidaysRequest extends FormRequest
+class CretateloginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,16 @@ class CreateHolidaysRequest extends FormRequest
     public function rules()
     {
         return [
-            'descriptionHolidays' => 'required|alpha'            
+            'email' => 'required|email|max:25|unique:users',
+            'password' => 'required|confirmed|min:5'
         ];
     }
 
     public function messages(){
-        return [
-            'descriptionHolidays.required'=>'El campo solo permite letras'
+        return[
+            'email.required' => 'Este campo es obligatorio.',
+            'email.email' => 'Este campo debe tener formato correo electrónico.',
+            'email.max'=> 'Esta campo permite hasta máximo 25 caracteres.',
         ];
     }
 }

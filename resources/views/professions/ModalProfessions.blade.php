@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="{{route('professions.store')}}" method="POST">
+                <form id="modal_professionss" action="{{route('professions.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Descripción</label>

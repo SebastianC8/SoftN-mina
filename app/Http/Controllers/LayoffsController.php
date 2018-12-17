@@ -88,10 +88,11 @@ class LayoffsController extends Controller
      */
     public function update(Request $request)
     {
+        
         $layoffss=layoffs::where('idLayoffs', $request['idLayoffs_edit'])->
         update([
             'descriptionLayoffs' => $request['descriptionLayoffsE'], 
-            'valueLayoffs' => $request['valueLayoffs']
+            'valueLayoffs' =>       $request['valueLayoffsE']
         ]);
         if($layoffss){
             swal()->message('Felicidades', 'La cesantía se actualizó correctamente.','success');        
@@ -117,7 +118,5 @@ class LayoffsController extends Controller
         $layoffs=layoffs::where('idLayoffs',$id)->update(["status"=>$status]);
         swal()->message('Felicidades', 'El estado de la cesantía se ha cambiado correctamente.','success');
         return redirect()->route('layoffs.index');
-
-
     }
 }

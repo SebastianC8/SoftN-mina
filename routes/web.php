@@ -262,3 +262,7 @@ Route::get('relationships/{id}/show', 'RelationshipsController@show');
 Route::post('relationships_update','RelationshipsController@update');
 
 Route::post('levelEducative/store', ['as' => 'level_Educative.store', 'uses' => 'Employees_Has_LevelEducative_Controller@store']);
+//Ruta para ir a consultar fecha de ingreso del empleado.
+Route::get('HolidaysController/{id}/show', 'HolidaysController@traerFechaIngreso');
+//Ruta para guardas las vacaciones con documento
+Route::post('diasfestivos', ['as' => 'diasfestivos.vacaciones', 'uses' => 'HolidaysController@guardarVaciones']);

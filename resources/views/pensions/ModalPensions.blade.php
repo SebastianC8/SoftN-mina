@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="{{route('pensions.store')}}" method="POST">
+                <form id="modal_pensionss" action="{{route('pensions.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Descripción</label>
@@ -19,7 +19,7 @@
                             {!!$errors->first('namePensions','<span class=error>:message</span>')!!}
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row"> 
                         <label for="" class="col-sm-3 col-form-label">Porcentaje</label>
                         <div class="col-sm-9">
                             <input type="number" class="form-control" id="percentagePension" name="percentagePension" value="{{old('percentagePension')}}"

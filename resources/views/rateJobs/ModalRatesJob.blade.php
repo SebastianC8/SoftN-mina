@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form_bonuses" action="{{route('rateJobs.store')}}" method="POST">
+                <form id="modal_ratesJobb" action="{{route('rateJobs.store')}}" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Cargo</label>
@@ -19,7 +19,7 @@
                             {!!$errors->first('nameJob','<span class=error>:message</span>')!!}
                         </div>
                         <br><br>
-                        <label for="" class="col-sm-3 col-form-label">Valor</label>
+                        <label for="" class="col-sm-3 col-form-label">Salario</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="ratesValue" name="ratesValue" value="{{old('ratesValue')}}"
                                 placeholder="Ingrese el salario del cargo" required>
