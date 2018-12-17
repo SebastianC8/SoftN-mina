@@ -104,19 +104,37 @@ class PayrollController extends Controller
             $help_transport = 0;
         }
 
-        //Acumulado de adiciones al salario.
-        // if($request['value_addition'] == null){
-        // }
-        // else if($request['value_deduction'] == null){
-        // }
 
-        foreach ($request['value_addition'] as $key => $value) {
-            $acum_additions += $value;
+        if($request['value_addition'] == null)
+        {
+            dump("Adición: ".$request['value_addition']);
+            // dd("Finish.");
+        }else{
+            foreach ($request['value_addition'] as $key => $value) {
+                $acum_additions += $value;
+            }
         }
+
         //Acumulado de deducciones al salario.
-        foreach ($request['value_deduction'] as $key => $value) {
-            $acum_deductions += $value;
+        if($request['value_deduction'] == null)
+        {
+            dump("Deducción: ".$request['value_deduction']);
+            // dd("Finish.");
         }
+        else{
+            foreach ($request['value_deduction'] as $key => $value) {
+                $acum_deductions += $value;
+            }
+        }
+
+        if($acum_overtimes == null)
+        {
+            dump("Horas extras: ".$acum_overtimes);
+            // dd("Finish.");
+        }else{
+            dd("xd. melo");
+        }
+
         //Cálculo del salario total.
         $net_pay = $salary_employee[0] + $acum_additions + $acum_overtimes + $help_transport - $acum_deductions;
         $net_pay_parcial = $salary_employee[0] + $acum_additions + $acum_overtimes - $acum_deductions;
