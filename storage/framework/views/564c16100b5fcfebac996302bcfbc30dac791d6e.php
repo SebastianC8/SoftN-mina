@@ -8,12 +8,15 @@
             <?php if(session()->has('alert')): ?>
             <?php else: ?>
             <h3><?php echo e(session('alert')); ?></h3>
-            <h4 class="card-title">Lista de EPS </h4>
+            <h4 class="card-title">Lista de EPS</h4>
             <h4></h4>
             <table class="table table-bordered" id="tableBonus">
                 <thead>
                     <tr>
                         <th>Descripción</th>
+                        <th>% del empleado</th>
+                        <th>% del empelador</th>
+                        <th>Año de vigencia</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -22,6 +25,9 @@
                     <?php $__currentLoopData = $eps; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($item->nameEPS); ?></td>
+                        <td><?php echo e($item->percentage); ?>%</td>
+                        <td><?php echo e($item->eps_employeer); ?>%</td>
+                        <td><?php echo e(substr($item->year_valid, 0, 4)); ?></td>
                         <td><?php echo e($item->status==1?"Activo":"Inactivo"); ?></td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editEPS(<?php echo e($item->idEPS); ?>)" title="Editar"><i
@@ -62,6 +68,8 @@
         $.get("<?php echo e(url('EPS')); ?>" + '/' + id + '/show', (data)=>{
             $("#idEPS_edit").val(data.idEPS);
             $("#nameEPS_edit").val(data.nameEPS);
+            $("#percentageEPSEdit").val(data.percentage);
+            $("#percentage_employeer_edit").val(data.eps_employeer);
         })
         $("#modal_eps_edit").modal();
     }

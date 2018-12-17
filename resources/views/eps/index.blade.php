@@ -10,13 +10,15 @@
             @if(session()->has('alert'))
             @else
             <h3>{{session('alert')}}</h3>
-            <h4 class="card-title">Lista de EPS </h4>
+            <h4 class="card-title">Lista de EPS</h4>
             <h4></h4>
             <table class="table table-bordered" id="tableBonus">
                 <thead>
                     <tr>
                         <th>Descripción</th>
-                        <th>Porcentaje</th>
+                        <th>% del empleado</th>
+                        <th>% del empelador</th>
+                        <th>Año de vigencia</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -25,7 +27,9 @@
                     @foreach ($eps as $item)
                     <tr>
                         <td>{{$item->nameEPS}}</td>
-                        <td>{{$item->percentage}}</td>
+                        <td>{{$item->percentage}}%</td>
+                        <td>{{$item->eps_employeer}}%</td>
+                        <td>{{substr($item->year_valid, 0, 4)}}</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editEPS({{$item->idEPS}})" title="Editar"><i
@@ -67,7 +71,7 @@
             $("#idEPS_edit").val(data.idEPS);
             $("#nameEPS_edit").val(data.nameEPS);
             $("#percentageEPSEdit").val(data.percentage);
-            
+            $("#percentage_employeer_edit").val(data.eps_employeer);
         })
         $("#modal_eps_edit").modal();
     }

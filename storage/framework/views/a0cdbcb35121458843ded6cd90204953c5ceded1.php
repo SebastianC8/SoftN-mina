@@ -14,6 +14,8 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
+                        <th>% del empleado</th>
+                        <th>% del empleador</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -22,6 +24,8 @@
                     <?php $__currentLoopData = $pensions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($item->namePensions); ?></td>
+                        <td><?php echo e($item->percentage_pension); ?>%</td>
+                        <td><?php echo e($item->percentage_employer); ?>%</td>
                         <td><?php echo e($item->status==1?"Activo":"Inactivo"); ?></td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editPensions(<?php echo e($item->idPensions); ?>)" title="Editar"><i
@@ -64,6 +68,8 @@
         $.get("<?php echo e(url('pensions')); ?>" + '/' + id + '/show', (data)=>{
             $("#idPensions").val(data.idPensions);
             $("#namePensions_edit").val(data.namePensions);
+            $("#percentagePension_Edit").val(data.percentage_pension);
+            $("#percentage_employer_edit").val(data.percentage_employer);
         })
         $("#modal_pensions_edit").modal();
     }

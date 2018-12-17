@@ -9,13 +9,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="" action="" method="POST">
+                <form id="form_holidays" action="" method="POST">
                     <?php echo csrf_field(); ?>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Descripción</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="descriptionHolidays" name="descriptionHolidays" value="<?php echo e(old('descriptionHolidays')); ?>"
-                                placeholder="Ingrese la descripción de las vacaciones" required>
+                                placeholder="Ingrese la descripción de las vacaciones">
                             <?php echo $errors->first('descriptionHolidays','<span class=error>:message</span>'); ?>
 
                         </div>
@@ -23,7 +23,7 @@
                         <label for="" class="col-sm-3 col-form-label">Fecha de inicio</label>
                         <div class="col-sm-9">
                             <input type="date" class="form-control" id="dateStart" name="dateStart" onchange="validateDate(this.value)" value="<?php echo e(old('dateStart')); ?>"
-                                placeholder="Ingrese el nombre de la EPS" required>
+                                placeholder="Ingrese el nombre de la EPS" >
                             <?php echo $errors->first('dateStart','<span class=error>:message</span>'); ?>
 
                         </div>
@@ -31,7 +31,7 @@
                         <label for="" class="col-sm-3 col-form-label">Fecha fin</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="dateEnd" name="dateEnd" readonly value="<?php echo e(old('dateEnd')); ?>"
-                                placeholder="Fecha fin de las vacaciones" required>
+                                placeholder="Fecha fin de las vacaciones" >
                             <?php echo $errors->first('dateEnd','<span class=error>:message</span>'); ?>
 
                         </div>

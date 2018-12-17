@@ -20,6 +20,24 @@
 
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">% del empleado</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="percentagePension" name="percentagePension" value="<?php echo e(old('percentagePension')); ?>"
+                                placeholder="Ingrese el porcentaje del empleado." required>
+                            <?php echo $errors->first('percentagePension','<span class=error>:message</span>'); ?>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">% del empleador</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="percentage_employer" name="percentage_employer" value="<?php echo e(old('percentage_employer')); ?>"
+                                placeholder="Ingrese el porcentaje del empleador." required>
+                            <?php echo $errors->first('percentage_employer','<span class=error>:message</span>'); ?>
+
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

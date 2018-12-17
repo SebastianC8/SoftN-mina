@@ -14,7 +14,6 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
-                        <th>Valor</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -23,7 +22,6 @@
                     <?php $__currentLoopData = $commissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($item->nameCommission); ?></td>
-                        <td><?php echo e($item->value_commission); ?></td>
                         <td><?php echo e($item->status==1?"Activo":"Inactivo"); ?></td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="editCommissions(<?php echo e($item->idCommissions); ?>)"><i
@@ -67,7 +65,6 @@
         $.get("<?php echo e(url('commissions')); ?>" + '/' + id + '/show', (data)=>{
             $("#idCommission_mdl").val(data.idCommissions);
             $("#nameComissionMdl").val(data.nameCommission);
-            $("#value_commission_Mdl").val(data.value_commission);
             $('#modal_commissionsEdit').modal();
         })
     }

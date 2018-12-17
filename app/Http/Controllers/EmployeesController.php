@@ -26,6 +26,7 @@ use App\Models\RatesJob;
 use App\Models\Contracts_Has_Employees;
 use App\Models\Employees_Has_LevelEducative;
 use App\Models\Employees_Has_Professions;
+use App\Models\Salary;
 use App\Http\Requests\CreateEmployeesRequest;
 use Illuminate\Http\Request;
 
@@ -61,6 +62,7 @@ class EmployeesController extends Controller
     }
 
     public function store(Request $request){
+        $value_hour_employee = 0;
         DB::transaction(function () use($request) {
         $valueEmployees = Employees::create([
             'documentType_id' => $request['documentType_id'],
@@ -116,7 +118,21 @@ class EmployeesController extends Controller
         Contracts_Has_Employees::create([
             'contracts_id' => $contract_id,
             'employees_id' => $employee_id
-            ]);
+        ]);
+
+        //Registrar salario
+        $salary = RatesJob::where('idRatesJob', $request['ratesJob_id'])->first();
+        $value_hour_employee = $salary->ratesValue / ($request['hoursDaily'] * $request['payment_period']);
+        $salary_base = $value_hour_employee * ($request['hoursDaily'] * $request['payment_period']);
+        // dd($request['payment_period']);
+
+        Salary::create([
+            'valueHour' => $value_hour_employee,
+            'quantity_hours_employee' => $request['hoursDaily'],
+            'days_worked' => $request['payment_period'],
+            'salaryBase' => $salary_base,
+            'contract_id' => $contract_id
+        ]);
 
         foreach($request['level_educative_id'] as $key => $value) {
             Employees_Has_LevelEducative::create([
@@ -136,6 +152,7 @@ class EmployeesController extends Controller
         $employee = Contracts_Has_Employees::join('contracts', 'contracts.idcontracts', 'contracts_has_employees.contracts_id')
         ->join('employees', 'employees.idemployees', 'contracts_has_employees.employees_id')
         ->join('maritalstatus', 'maritalstatus.idMaritalStatus', 'employees.maritalStatus_id')
+        ->join('ratesjob', 'ratesjob.idRatesJob', 'contracts.ratesJob_id')
         ->where('contracts_has_employees.employees_id', $id)->first();
         return response()->json($employee);
     }

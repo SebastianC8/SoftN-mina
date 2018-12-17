@@ -16,7 +16,8 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
-                        <th>Porcentaje</th>
+                        <th>% del empleado</th>
+                        <th>% del empleador</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -25,7 +26,8 @@
                     @foreach ($pensions as $item)
                     <tr>
                         <td>{{$item->namePensions}}</td>
-                        <td>{{$item->percentage}}</td>                        
+                        <td>{{$item->percentage_pension}}%</td>
+                        <td>{{$item->percentage_employer}}%</td>
                         <td>{{$item->status==1?"Activo":"Inactivo"}}</td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editPensions({{$item->idPensions}})" title="Editar"><i
@@ -68,7 +70,8 @@
         $.get("{{url('pensions')}}" + '/' + id + '/show', (data)=>{
             $("#idPensions").val(data.idPensions);
             $("#namePensions_edit").val(data.namePensions);
-            $("#percentagePension_Edit").val(data.percentage);
+            $("#percentagePension_Edit").val(data.percentage_pension);
+            $("#percentage_employer_edit").val(data.percentage_employer);
         })
         $("#modal_pensions_edit").modal();
     }

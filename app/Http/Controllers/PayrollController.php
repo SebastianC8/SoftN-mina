@@ -10,8 +10,14 @@ use App\Models\Contracts_Has_Employees;
 use App\Models\Overtimes;
 use App\Models\Vinculations;
 use App\Models\Payroll;
+use App\Models\Salary;
+use App\Models\Payroll_Has_Employees;
+use App\Models\Payroll_Has_Commissions;
+use App\Models\Payroll_Has_Deductions;
+use App\Models\Payroll_Has_Overtimes;
 use App\Http\Controllers\Controller;
 use Softon\SweetAlert\Facades\SWAL;
+use SebastianBergmann\CodeUnitReverseLookup\Wizard;
 
 class PayrollController extends Controller
 {
@@ -38,11 +44,20 @@ class PayrollController extends Controller
     }
 
     public function get_salary($document){
-        $salary = Contracts_Has_Employees::join('employees', 'employees.idemployees', 'contracts_has_employees.employees_id')->
-        join('contracts', 'contracts.idcontracts', 'contracts_has_employees.contracts_id')->
-        join('ratesjob', 'ratesjob.idRatesJob', 'contracts.ratesJob_id')->
+        $salary = Salary::join('contracts', 'contracts.idcontracts', 'salary.contract_id')->
+        join('contracts_has_employees', 'contracts.idcontracts', 'contracts_has_employees.id')->
+        join('employees', 'employees.idemployees', 'contracts_has_employees.employees_id')->
         where('employees.document', $document)->first();
         return response()->json($salary);
+    }
+
+    public function daysWorked_update(Request $request){
+        $days_worked = Salary::where('idsalary', $request['id_salary'])->
+        update([
+            'days_worked' => $request['days_worked_mdl']
+        ]);
+        swal()->message('Felicidades', 'Los días trabajados por el empleado han sido actualizados correctamente.', 'success');
+        return redirect()->route('payroll.index');
     }
 
     public function store(Request $request){
@@ -51,7 +66,6 @@ class PayrollController extends Controller
         $acum_deductions = 0;
         $acum_overtimes = $request['input_total_overtimes'];
         $salary_employee = $request['salary_employee'];
-        $days_worked = $request['days_worked'];
         $net_pay = 0;
         $help_transport = 0;
         $eps_employee = 0;
@@ -62,25 +76,40 @@ class PayrollController extends Controller
         $layoffs = 0;
         $salary_total = 0;
         $net_pay_parcial = 0;
+        $value_hour_employee = 0;
+        $quantity_hours_employee = 0;
+        $dayws_worked_employee = 0;
 
         //Consultar las vinculaciones del empleado.
         $vinculations = Vinculations::join('eps','eps.idEPS','vinculations.eps_id')->
         join('arl', 'arl.idARL', 'vinculations.arl_id')->
+        join('type_risk', 'type_risk.id_type_risk', 'arl.job_id')->
         join('layoffs', 'layoffs.idLayoffs', 'vinculations.layoffs_id')->
         join('compensationfound', 'compensationfound.idCompensationFound', 'vinculations.compensationfound_id')->
         join('pensions', 'pensions.idPensions', 'vinculations.pensions_id')->
         join('employees', 'employees.idemployees', 'vinculations.employees_id')->
         where('employees.document', $request['document_employee'])->first();
 
-        dd($vinculations);
+        // dd($vinculations);
 
-        if($salary_employee[0] <= 781242 * 2){
-            $help_transport = 88211;
+
+        $salary = Salary::join('contracts', 'contracts.idcontracts', 'salary.contract_id')->
+        join('contracts_has_employees', 'contracts_has_employees.contracts_id', 'contracts_has_employees.contracts_id')->
+        where('contracts_has_employees.employees_id', $request['employee_id'])->first();
+
+
+        if($salary_employee[0] <= $salary->minimum_salary * 2){
+            $help_transport = $salary->help_transport;
         }else{
             $help_transport = 0;
         }
 
         //Acumulado de adiciones al salario.
+        // if($request['value_addition'] == null){
+        // }
+        // else if($request['value_deduction'] == null){
+        // }
+
         foreach ($request['value_addition'] as $key => $value) {
             $acum_additions += $value;
         }
@@ -104,6 +133,7 @@ class PayrollController extends Controller
         $eps_employer = ($net_pay_parcial * $vinculations->eps_employeer)/100;
         $pension_employee = ($net_pay_parcial * $vinculations->percentage_pension)/100;
         $pension_employer = ($net_pay_parcial * $vinculations->percentage_employer)/100;
+        $arl = ($salary->minimum_salary * $vinculations->value_risk)/100;
 
         dump("Valor del empleado por EPS: ".$eps_employee);
         dump("Valor del empleador por EPS: ".$pension_employer);
@@ -114,14 +144,18 @@ class PayrollController extends Controller
         //--Cesantías por 1 mes.
         $layoffs = ($net_pay * 1)/12;
 
+
         //Salario total a pagar al empleado.
         $salary_total = $net_pay - $eps_employee - $pension_employee;
 
+        dump("Salario total: ".$salary_total);
+
         $payroll = Payroll::create([
-            'salaryEmployee' => $salary_employee,
+            'salaryEmployee' => $salary_employee[0],
             'daysWorked' => $days_worked,
             'epsEmployee' => $eps_employee,
             'epsCompany' => $eps_employer,
+            'arlCompany' => $arl,
             'layoffs' => $layoffs,
             'pensionEmployee' => $pension_employee,
             'pensionCompany' => $pension_employer,
@@ -131,5 +165,39 @@ class PayrollController extends Controller
             'total_Overtimes' => $acum_overtimes,
             'netPay' => $salary_total
         ]);
-    }
+
+        $id_payroll = $payroll->idPayroll;
+
+        $payroll_employees = Payroll_Has_Employees::create([
+            'payroll_id' => $id_payroll,
+            'employees_id' => $request['employee_id'][0]
+        ]);
+
+        foreach($request['commission_id'] as $key => $value){
+            Payroll_Has_Commissions::create([
+                'payroll_id' => $id_payroll,
+                'commission_id' => $request['commission_id'][$key],
+                'value_commission' => $request['value_addition'][$key]
+            ]);
+        }
+
+        foreach($request['deductions_id'] as $key => $value){
+            Payroll_Has_Deductions::create([
+                'payroll_id' => $id_payroll,
+                'deductions_id' => $request['deductions_id'][$key],
+                'value_deduction' => $request['value_deduction'][$key]
+            ]);
+        }
+
+        foreach($request['overtime_id'] as $key => $value){
+            Payroll_Has_Overtimes::create([
+                'payroll_id' => $id_payroll,
+                'overtime_id' => $request['overtime_id'][$key],
+                'quantityHours' => $request['quantity_hours'][$key],
+                'valueHour' => $request['value_overtime'][$key]
+            ]);
+        }
+        swal()->message('Felicidades', 'La nómina del empleado ha sido registrada correctamente.', 'success');
+        return redirect()->route('payroll.index')->back();
+        }
 }

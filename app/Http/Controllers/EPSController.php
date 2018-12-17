@@ -13,17 +13,11 @@ class EPSController extends Controller
     }
 
     public function store(Request $request){
-        // $eps = $request->all();
-        // Eps::create($eps);
-        // swal()->message('Felicidades', 'La EPS se registró correctamente.','success');
-        // return redirect()->route('EPS.index');
-    
         $eps= Eps::create([
-            
-                 'nameEPS' => $request['nameEPS'],
-            'percentage'=> $request['percentageEPS']
+            'nameEPS' => $request['nameEPS'],
+            'percentage'=> $request['percentageEPS'],
+            'eps_employeer' => $request['percentage_employeer']
         ]);
- 
         swal()->message('Felicidades', 'La EPS se registró correctamente.','success');
         return redirect()->route('EPS.index');
 
@@ -38,7 +32,8 @@ class EPSController extends Controller
         $eps = Eps::where('idEPS', $request['idEPS_edit'])->
         update([
             'nameEPS' => $request['nameEPS_edit'],
-            'percentage'=> $request['percentageEPSEdit']
+            'percentage'=> $request['percentageEPSEdit'],
+            'eps_employeer' => $request['percentage_employeer_edit']
         ]);
         swal()->message('Felicidades', 'La EPS se actualizó correctamente.','success');
         return redirect()->route('EPS.index');

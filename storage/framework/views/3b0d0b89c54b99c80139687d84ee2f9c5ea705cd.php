@@ -1,3 +1,5 @@
+ 
+
 <?php $__env->startSection('contenido'); ?>
 
 
@@ -78,10 +80,11 @@
         var days = 16;
         var valueDate = $("#dateStart").val();
         var getDate = new Date(valueDate);
+        // var month = ("0" + (getDate.getMonth() + 2)).slice(-2);
         getDate.setDate(getDate.getDate() + days);
 
-        var formatDate = (getDate.getFullYear()) + '/' + getDate.getMonth() + '/' + getDate.getDate();
-        // console.error(formatDate);
+        var formatDate = (getDate.getFullYear()) + '/' + (getDate.getMonth()+1) +  '/' + getDate.getDate();
+        alert(formatDate);
         $("#dateEnd").val(formatDate);
     }
 </script>

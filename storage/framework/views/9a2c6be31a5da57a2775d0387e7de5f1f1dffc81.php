@@ -20,6 +20,15 @@
 
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Valor </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="value_arl" name="value_arl" value="<?php echo e(old('value_arl')); ?>"
+                                placeholder="Ingrese el valor de la ARL" required>
+                            <?php echo $errors->first('value_arl','<span class=error>:message</span>'); ?>
+
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

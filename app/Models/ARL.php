@@ -9,5 +9,5 @@ class ARL extends Model
     protected $table = 'arl';
     protected $primaryKey = 'idARL';
     public $timestamps = false;
-    protected $fillable = ['nameARL'];
+    protected $fillable = ['nameARL', 'value_arl'];
 }

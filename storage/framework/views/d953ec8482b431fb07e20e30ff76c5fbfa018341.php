@@ -45,7 +45,6 @@
                         <td><?php echo e($item->email); ?></td>
                         <td><?php echo e($item->Phone); ?></td>
                         
-                        
                         <td>
                             <a class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" href="<?php echo e(url('employees/edit/'.$item->idemployees)); ?>"><i
                             class="fas fa-edit"></i></a>
@@ -81,16 +80,17 @@
     function getEmployee(id){
         $.get("<?php echo e(url('employees')); ?>" + '/' + id + '/show', (data)=>{
             $("#body_table_employees").empty();
-            $("#body_table_employees").append("<tr><td>"+data.numberSons+"</td><td>"+data.nameMaritalStatus+"</td><td>"+data.descriptionContract+"</td><td>"+data.nameJob+"</td><td>$"+data.ratesValue+"</td><tr>");
+            $("#body_table_employees").append("<tr><td>"+data.numberSons+"</td><td>"+data.nameMaritalStatus+"</td><td>"+data.descriptionContract+"</td><td>"+data.nameJob+"</td><td>"+data.ratesValue+"</td><tr>");
         })
         $("#modal_employees").modal();
     }
 </script>
 
+
+
 <script>
     function editEmployee(val){
         $.get("<?php echo e(url('employees')); ?>" + '/' + val + '/show', (data)=>{
-            console.log(data);
         })
     }
 </script>

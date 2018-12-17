@@ -123,9 +123,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="col-md-6 myCard">
-                    <div id="card_overtimes" class="card" style="margin-left: -15px;">
+            
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div id="card_overtimes" class="card">
                         <div class="card-body table-responsive">
                             <h4 class="card-title">Horas extras <i class="fas fa-clock"></i></h4>
                             <p class="card-description">Añadir horas extras a un empleado.</p>
@@ -177,11 +177,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                
+
+            
+
     </form>
 </div>
 </div>
 </div>
+<?php echo $__env->make('payroll.mdl_information_laboral', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 
 <script>
@@ -194,7 +198,8 @@
 
     function get_salary() {
         $.get("<?php echo e(url('payroll')); ?>" + '/' + document_employee + '/get_salary', (response) => {
-            salary = response.ratesValue;
+            mySalary = response.valueHour * (response.quantity_hours_employee * response.days_worked)
+            salary = mySalary;
             if (JSON.stringify(response) == '{}') {
                 swal('Error', 'No existe un empleado con este número de documento.', 'info');
             } else {
@@ -203,10 +208,10 @@
                 $("#tbody_table_information").append(
                     "<tr><input type='hidden' name='employee_id[]' value='" + response.employees_id +
                     "'><td>" + response.nameEmployee + " " + response.lastName +
-                    "</td><input type='hidden' name='salary_employee[]' value='" + response.ratesValue +
-                    "'><td>" + number_format(response.ratesValue) +
-                    "</td><input type='hidden' name='days_worked[]' value='" + response.payment_period +
-                    "'><td>" + response.payment_period +
+                    "</td><input type='hidden' name='salary_employee[]' value='" + mySalary +
+                    "'><td>" + number_format(mySalary) +
+                    "</td><input type='hidden' name='days_worked[]' value='" + response.days_worked +
+                    "'><td>" + response.days_worked +
                     "</td><td><button id='btn_edit_information' type='button' class='btn btn-success' title='Editar información'>Editar</td></tr>"
                 );
                 $("#commission_id").prop("disabled", false);
@@ -215,7 +220,11 @@
                 $("#quantityHours").prop("disabled", false);
 
                 $("#btn_edit_information").on("click", function () {
-                    swal('Abrir modal.', 'Se abrirá el modal.', 'success');
+                    $("#modal_information_work").modal();
+                    $("#id_salary").val(response.idsalary);
+                    $("#employee_id").val(response.nameEmployee + " " + response.lastName);
+                    $("#salary_employee").val(number_format(mySalary));
+                    $("#days_worked_mdl").val(response.days_worked);
                 });
             }
         });
@@ -346,7 +355,7 @@
                 "</td><input type='hidden' name='value_overtime[]' value='" + value_overtime + "'><td>" +
                 value_overtime +
                 "</td><input type='hidden' name='quantity_hours[]' value='" + quantityHours + "'><td>" +
-                quantityHours + "</td><td class='subTotal_overtime'>" + subTotal.toFixed(2) +
+                quantityHours + "</td><td class='subTotal_overtime'>" + subTotal +
                 "</td><td><button type='button' class='btn btn-icons btn-rounded btn-danger' title='Eliminar de la lista' onclick='delete_overtimes(" +
                 id_overtime + counter + ")'><i class='fas fa-trash'></i></button></td></tr>"
             )
@@ -354,8 +363,8 @@
             $(".subTotal_overtime").each(function () {
                 // sum = number_format(sum);
                 sum += parseFloat($(this).text());
-                $("#total_overtimes").text(sum.toFixed(2));
-                $("#input_total_overtimes").val(sum.toFixed(2));
+                $("#total_overtimes").text(sum);
+                $("#input_total_overtimes").val(sum);
             });
         };
     }

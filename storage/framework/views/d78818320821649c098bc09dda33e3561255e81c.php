@@ -21,6 +21,15 @@
 
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Valor de ARL</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="value_arl_edit" name="value_arl_edit" value="<?php echo e(old('value_arl_edit')); ?>"
+                                placeholder="Ingrese la descripción de la ARL" required>
+                            <?php echo $errors->first('value_arl','<span class=error>:message</span>'); ?>
+
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

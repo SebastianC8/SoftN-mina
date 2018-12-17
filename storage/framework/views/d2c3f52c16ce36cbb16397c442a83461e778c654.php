@@ -95,18 +95,10 @@
         let text_professions_mdl = $("#professions_id_mdl option:selected").text();
         let yearStart_mdl = getValueStart_mdl;
         let yearEnd_mdl = getValueEnd_mdl;
-        if($("#levelEducative_id_mdl").val()==0)
-        {
-            swal("¡Error!","No puede agregar esta opción.","error");
-        }else if($("#professions_id_mdl").val()==0)
-        {
-            swal("¡Error!","No puede agregar esta opción.","error");
-        }
-        else{
+        
         $("#tbl_mdl_lvlEducative").append(
             "<tr id='tr"+id_levelEducative_mdl+"'><input type='hidden' value='"+id_levelEducative_mdl+"' name='level_educative_id_mdl[]'><td>"+text_levelEducative_mdl+"</td><input type='hidden' value='"+id_professions_mdl+"' name='professions_id_mdl[]'><td>"+text_professions_mdl+"</td><input type='hidden' value='"+yearStart_mdl+"' name='yearStart_mdl[]'><td>"+yearStart_mdl+"</td><input type='hidden' value='"+yearEnd_mdl+"' name='yearEnd_mdl[]'><td>"+yearEnd_mdl+"</td><input type='hidden' name='employee_id' value="+employee_id+"><td><button class='btn btn-icons btn-rounded btn-danger' title='Eliminar de la lista' type='button' onclick='$("+'"'+"#tr"+id_levelEducative_mdl+'"'+").remove()'><i class='fas fa-trash'></i></button></td></tr>"
         );
-        }
     }
 </script>
 

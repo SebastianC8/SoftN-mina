@@ -13,6 +13,8 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
+                        <th>Valor de ARL</th>
+                        <th>Año de vigencia</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -21,6 +23,8 @@
                     <?php $__currentLoopData = $arl; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($item->nameARL); ?></td>
+                        <td><?php echo e($item->value_arl); ?></td>
+                        <td><?php echo e(substr($item->year_valid, 0, 4)); ?></td>
                         <td><?php echo e($item->status==1?"Activo":"Inactivo"); ?></td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="edit_arl(<?php echo e($item->idARL); ?>)" title="Editar"><i
@@ -63,6 +67,7 @@
         $.get("<?php echo e(url('arl')); ?>" + '/' + id + '/show', (data)=>{
             $("#idARL").val(data.idARL);
             $("#nameARL_edit").val(data.nameARL);
+            $("#value_arl_edit").val(data.value_arl);
         })
         $("#modal_arl_edit").modal();
     }

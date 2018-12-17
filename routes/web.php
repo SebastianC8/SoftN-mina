@@ -275,3 +275,5 @@ Route::get('payroll/{id}/get_value_deduction', 'PayrollController@get_value_dedu
 Route::get('payroll/{id}/get_value_overtime', 'PayrollController@get_value_overtime');
 //Ruta para consultar el salario de un empleado.
 Route::get('payroll/{document}/get_salary', 'PayrollController@get_salary');
+//Ruta para actualizar los días trabajados de un empleado.
+Route::post('days_worked_update', 'PayrollController@daysWorked_update');

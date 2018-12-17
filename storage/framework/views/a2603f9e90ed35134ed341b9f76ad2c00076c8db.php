@@ -13,7 +13,6 @@
                 <thead>
                     <tr>
                         <th>Descripción</th>
-                        <th>Valor</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -22,7 +21,6 @@
                     <?php $__currentLoopData = $deductions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($item->nameDeduction); ?></td>
-                        <td><?php echo e($item->value_deduction); ?></td>
                         <td><?php echo e($item->status==1?"Activo":"Inactivo"); ?></td>
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" onclick="editDeductions(<?php echo e($item->idDeductions); ?>)" title="Editar"><i
@@ -65,7 +63,6 @@
         $.get("<?php echo e(url('deductions')); ?>" + '/' + id + '/show', (data)=>{
             $("#idDeductions").val(data.idDeductions);
             $("#nameDeduction_edit").val(data.nameDeduction);
-            $("#value_deduction_edit").val(data.value_deduction);
         })
         $("#modal_deductions_edit").modal();
     }

@@ -12,8 +12,7 @@ class Payroll extends Model
     protected $fillable = [
         'salaryEmployee', 'daysWorked',
         'epsEmployee', 'epsCompany',
-        'arlEmployee', 'arlCompany',
-        'layoffs',
+        'arlCompany','layoffs',
         'pensionEmployee', 'pensionCompany',
         'helpTransport',
         'totalAdditions','totalDeductions', 'total_Overtimes',
