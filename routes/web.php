@@ -281,3 +281,5 @@ Route::get('payroll/{id}/get_value_overtime', 'PayrollController@get_value_overt
 Route::get('payroll/{document}/get_salary', 'PayrollController@get_salary');
 //Ruta para actualizar los días trabajados de un empleado.
 Route::post('days_worked_update', 'PayrollController@daysWorked_update');
+//Ruta para generar PDF del comprobante de pago al empleado.
+Route::get('payroll/{id}/pdf', 'PayrollController@getPDF');

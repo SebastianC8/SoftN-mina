@@ -8,7 +8,7 @@
         <div class="col-md-12 grid-margin">
             <div class="card" style="margin-left: 4px;width: 98%;">
                 <div class="card-body table-responsive">
-                    <h4 class="card-title " style="text-align:center">Gestión de Nómina <i class="fas fa-hand-holding-usd"></i></h4>
+                    <h4 class="card-title " style="text-align:center">Gestión de Nómina <button type="button" class="btn btn-icons btn-rounded btn-outline-success" title="Ver historial de nómina"><i class="fas fa-hand-holding-usd"></i></button></h4>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -138,7 +138,7 @@
                                         disabled>
                                         <option value="0">Seleccione una opción</option>
                                         @foreach ($overtimes as $value)
-                                        <option value="{{$value->idOvertime}}">{{$value->descriptionOvertime}}</option>
+                                            <option value="{{$value->idOvertime}}">{{$value->descriptionOvertime}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -175,7 +175,8 @@
                                 <p><b>Total: </b><span id="total_overtimes" style="color:red"></span></p>
                                 <input type="hidden" id="input_total_overtimes" name="input_total_overtimes">
                             </table><br><br>
-                            <button type="submit" class="btn btn-success">Enviar</button>
+                            <button id="btn_submit_payroll" type="submit" class="btn btn-success">Enviar</button>
+                            <button class="btn btn-outline-danger" type="button" onclick="prueba()">PDF</button>
                         </div>
                     </div>
                 </div>
@@ -238,10 +239,16 @@
     let document_employee = 0;
     let salary = 0;
 
+    //Obtener el número de documento del empleado.
     function get_value_salary(value) {
         document_employee = value;
     }
 
+    function prueba(){
+        location.href = "payroll/" + document_employee + "/pdf";
+    }
+
+    //Consultar salario, días trabajos y nombre del empleado y pintarlos en una tabla.
     function get_salary() {
         $.get("{{url('payroll')}}" + '/' + document_employee + '/get_salary', (response) => {
             mySalary = response.valueHour * (response.quantity_hours_employee * response.days_worked)
@@ -276,24 +283,28 @@
         });
     }
 
+    //Realizar consulta para obtener el valor de un tipo de adición específico y pintar dicho valor en un campo de texto.
     function get_value_addition(id) {
         $.get("{{url('payroll')}}" + '/' + id + '/get_value_addition', (response) => {
             $("#value_commission").val(response.value_commission);
         });
     }
 
+    //Realizar consulta para obtener el valor de un tipo de deducción específico y pintar dicho valor en un campo de texto.
     function get_value_deduction(id) {
         $.get("{{url('payroll')}}" + '/' + id + '/get_value_deduction', (response) => {
             $("#value_deduction").val(response.value_deduction);
         });
     }
 
+    //Realizar consulta para obtener el valor de un tipo de deducción específico y pintar dicho valor en un campo de texto.
     function get_value_overtime(id) {
         $.get("{{url('payroll')}}" + '/' + id + '/get_value_overtime', (response) => {
             $("#valueHour").val(response.value);
         });
     }
 
+    //Añadir adiciones a la tabla.
     function add_additions() {
         let id_addition = $("#commission_id").val();
         let text_addition = $("#commission_id option:selected").text();
@@ -312,6 +323,7 @@
                 id_addition + ")'><i class='fas fa-trash'></i></button></td></tr>"
             )
 
+            //Sumar el valor de todas las adiciones realizadas.
             $(".subTotal_addition").each(function () {
                 sum += parseFloat($(this).text());
                 $("#total_additions").text(sum);
@@ -319,6 +331,7 @@
         };
     }
 
+    //Eliminar adiciones de la tabla.
     function delete_additions(id) {
         let number_rows = $("#table_additions tr").length - 2;
         let substract = 0;
@@ -329,11 +342,13 @@
             positive = (substract * -1);
             $("#total_additions").text(positive);
         });
+        //Se valida que cuando no hayan filas en la tabla, el valor de la adición sea 0.
         if (number_rows == 0) {
             $("#total_additions").text(0);
         }
     }
 
+    //Añadir deducciones a la tabla.
     function add_deductions() {
         let id_deduction = $("#deductions_id").val();
         let text_deduction = $("#deductions_id option:selected").text();
@@ -351,7 +366,7 @@
                 "</td><td><button type='button' class='btn btn-icons btn-rounded btn-danger' title='Eliminar de la lista' onclick='delete_deductions(" +
                 id_deduction + ")'><i class='fas fa-trash'></i></button></td></tr>"
             )
-
+            //Sumar el valor de todas las deducciones realizadas.
             $(".subTotal_deduction").each(function () {
                 sum += parseFloat($(this).text());
                 $("#total_deductions").text(sum);
@@ -359,6 +374,7 @@
         };
     }
 
+    //Eliminar deducciones de la tabla.
     function delete_deductions(id) {
         let number_rows = $("#table_deductions tr").length - 2;
         let substract = 0;
@@ -369,11 +385,13 @@
             positive = (substract * -1);
             $("#total_deductions").text(positive);
         });
+        //Se valida que cuando no hayan filas en la tabla, el valor de la adición sea 0.
         if (number_rows == 0) {
             $("#total_deductions").text(0);
         }
     }
 
+    //Añadir horas extras a la tabla.
     function add_overtimes() {
         let id_overtime = $("#overtime_id").val();
         let text_overtime = $("#overtime_id option:selected").text();
@@ -385,6 +403,9 @@
         let number_rows = $("#table_overtimes tr").length;
         let counter = 0;
 
+        //Los tr de la tabla de horas extras tienen asignados un ID. Para evitar que este ID se repita cuando
+        //se escoge el mismo tipo de hora extra, hice que la variable counter aumentara a medida que se añadian
+        //más filas a la tabla.
         for (let i = 0; i <= number_rows - 1; i++) {
             counter++;
         }
@@ -405,9 +426,8 @@
                 "</td><td><button type='button' class='btn btn-icons btn-rounded btn-danger' title='Eliminar de la lista' onclick='delete_overtimes(" +
                 id_overtime + counter + ")'><i class='fas fa-trash'></i></button></td></tr>"
             )
-
+            //Sumar el valor de todas las horas extras añadidas.
             $(".subTotal_overtime").each(function () {
-                // sum = number_format(sum);
                 sum += parseFloat($(this).text());
                 $("#total_overtimes").text(sum);
                 $("#input_total_overtimes").val(sum);
@@ -415,6 +435,7 @@
         };
     }
 
+    //Eliminar horas extras de la tabla.
     function delete_overtimes(id) {
         let number_rows = $("#table_overtimes tr").length - 2;
         let substract = 0;
@@ -427,6 +448,7 @@
             $("#total_overtimes").text(positive);
             $("#input_total_overtimes").val(positive);
         });
+         //Se valida que cuando no hayan filas en la tabla, el valor de la adición sea 0.
         if (number_rows == 0) {
             $("#total_overtimes").text(0);
         }
