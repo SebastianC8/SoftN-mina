@@ -34,10 +34,11 @@
     30 => 'Yajra\\DataTables\\DataTablesServiceProvider',
     31 => 'Softon\\SweetAlert\\SweetAlertServiceProvider',
     32 => 'Collective\\Html\\HtmlServiceProvider',
-    33 => 'App\\Providers\\AppServiceProvider',
-    34 => 'App\\Providers\\AuthServiceProvider',
-    35 => 'App\\Providers\\EventServiceProvider',
-    36 => 'App\\Providers\\RouteServiceProvider',
+    33 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    34 => 'App\\Providers\\AppServiceProvider',
+    35 => 'App\\Providers\\AuthServiceProvider',
+    36 => 'App\\Providers\\EventServiceProvider',
+    37 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -58,10 +59,11 @@
     14 => 'Yajra\\DataTables\\DataTablesServiceProvider',
     15 => 'Yajra\\DataTables\\DataTablesServiceProvider',
     16 => 'Softon\\SweetAlert\\SweetAlertServiceProvider',
-    17 => 'App\\Providers\\AppServiceProvider',
-    18 => 'App\\Providers\\AuthServiceProvider',
-    19 => 'App\\Providers\\EventServiceProvider',
-    20 => 'App\\Providers\\RouteServiceProvider',
+    17 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    18 => 'App\\Providers\\AppServiceProvider',
+    19 => 'App\\Providers\\AuthServiceProvider',
+    20 => 'App\\Providers\\EventServiceProvider',
+    21 => 'App\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (
