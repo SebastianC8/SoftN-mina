@@ -27,7 +27,7 @@
                         <td>
                             <button class="btn btn-icons btn-rounded btn-outline-info" title="Editar" style="border-radius:20px" onclick="updateAreass({{$area->idAreas}})"><i
                                 class="fas fa-edit"></i></button>
-                            
+
                             @if($area->status == 1)
                             <a href="/area/estado/{{ $area->idAreas }}/0" class="btn btn-icons btn-rounded btn-outline-danger" title="Inactivar" style="border-radius:20px"><i class="fas fa-exchange-alt">
                                 </i></a>
@@ -50,7 +50,7 @@
 <script>
         function addAreas()
         {
-            $('#modal_areas').modal();            
+            $('#modal_areas').modal();
         }
 </script>
 
@@ -59,13 +59,12 @@
 function updateAreass(idArea)
 {
     $.get("{{ url('area')}}" + '/' + idArea + '/show' ,(data)=>{
-        console.log(data.nameArea)
      $("#txt_idareas").val(data.idAreas)
      $("#nameAre").val(data.nameArea);
      $("#bossAre").val(data.bossArea);
      $('#modal_editar').modal(idArea);
     })
-    
+
 }
 </script>
 

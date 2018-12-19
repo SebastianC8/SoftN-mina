@@ -68,7 +68,6 @@
 <script>
     function getContract(id){
         $.get("{{url('contracts')}}" + '/' + id + '/show', (data)=>{
-            console.log(data);
             $("#body_table_employees").empty();
             $("#body_table_employees").append("<tr><td>"+data.workDay+"</td><td>"+data.hoursDaily+" horas</td><td>"+data.nameJob+"</td><td>$"+data.ratesValue+"</td></tr>");
         })
